@@ -1,0 +1,31 @@
+{
+  "name": "inner-join",
+  "version": "1.0.0",
+  "description": "Dating app for Devs",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "mysql2": "^2.1.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.21.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DCoffey20/Inner-Join.git"
+  },
+  "author": "Love Just Is",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DCoffey20/Inner-Join/issues"
+  },
+  "homepage": "https://github.com/DCoffey20/Inner-Join#readme"
+}
