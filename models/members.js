@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     languages: DataTypes.STRING,
     gender_orientation: DataTypes.INTEGER,
-    about_me: DataTypes.STRING
+    about_me: DataTypes.TEXT
   }, {});
   Members.associate = function(models) {
     // associations can be defined here

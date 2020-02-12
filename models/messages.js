@@ -1,12 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Messages = sequelize.define('Messages', {
-    sender_id: DataTypes.INTEGER,
-    receiver_id: DataTypes.INTEGER,
-    message: DataTypes.STRING
+    message: DataTypes.TEXT,
   }, {});
   Messages.associate = function(models) {
-    // associations can be defined here
+    Messages.belongsToMany(models.Members, { through: Messages });
   };
   return Messages;
 };
