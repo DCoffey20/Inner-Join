@@ -30,7 +30,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       about_me: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
