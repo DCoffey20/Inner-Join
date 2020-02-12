@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     message: DataTypes.TEXT,
   }, {});
   Messages.associate = function(models) {
-    Messages.belongsToMany(models.Members, { through: Messages });
+    
   };
   return Messages;
 };

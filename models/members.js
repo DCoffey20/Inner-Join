@@ -9,9 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     languages: DataTypes.STRING,
     gender_orientation: DataTypes.INTEGER,
     about_me: DataTypes.TEXT
+
   }, {});
   Members.associate = function(models) {
-    // associations can be defined here
+    Members.hasMany(models.Messages, { foreignKey: "sender_id" });
+    Members.hasMany(models.Messages, { foreignKey: "receiver_id" });
   };
   return Members;
 };
