@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('languages_knowns', {
+    return queryInterface.createTable('Languages', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -29,7 +29,7 @@ module.exports = {
       swift: {
         type: Sequelize.BOOLEAN
       },
-      C++: {
+      CPlusPlus: {
         type: Sequelize.BOOLEAN
       },
       R: {
@@ -41,10 +41,7 @@ module.exports = {
       assembly: {
         type: Sequelize.BOOLEAN
       },
-      objective - c: {
-        type: Sequelize.BOOLEAN
-      },
-      r: {
+      objectivec: {
         type: Sequelize.BOOLEAN
       },
       createdAt: {
@@ -58,6 +55,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('languages_knowns');
+    return queryInterface.dropTable('Languages');
   }
 };

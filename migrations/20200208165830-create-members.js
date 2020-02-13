@@ -23,9 +23,6 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      languages: {
-        type: Sequelize.STRING
-      },
       gender_orientation: {
         type: Sequelize.INTEGER
       },
