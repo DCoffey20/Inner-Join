@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const languages_known = sequelize.define('languages_known', {
+  const Languages = sequelize.define('Languages', {
     javascript: DataTypes.BOOLEAN,
     c: DataTypes.BOOLEAN,
     csharp: DataTypes.BOOLEAN,
@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     assembly: DataTypes.BOOLEAN,
     objectivec: DataTypes.BOOLEAN
   }, {});
-  languages_known.associate = function(models) {
-    // associations can be defined here
+  Languages.associate = function(models) {
+    Languages.belongsToMany(models.Members, { through: 'MemberLanguages' });
   };
-  return languages_known;
+  return Languages;
 };
