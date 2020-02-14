@@ -5,10 +5,20 @@ module.exports = (sequelize, DataTypes) => {
     last_name: DataTypes.STRING,
     user_name: DataTypes.STRING,
     gender: DataTypes.INTEGER,
-    email: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true
+      }
+    },
     gender_orientation: DataTypes.INTEGER,
-    about_me: DataTypes.TEXT
-
+    about_me: DataTypes.TEXT,
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {});
   Members.associate = function(models) {
     Members.hasMany(models.Messages, { foreignKey: "sender_id" });
