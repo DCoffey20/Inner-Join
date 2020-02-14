@@ -1,31 +1,48 @@
 const express = require("express");
 const db = require("../models");
 const passport = require("../config/passport");
-const router = express.Router();
 
-router.get("/api/members/:id", function (req, res) {
-  db.Members.findOne({raw : true}).then(function (data) {
-    let hbsBurger = { burgers: data };
-    res.render("index", hbsBurger);
+module.exports = function(app) {
+
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json(req.user);
   });
-});
 
-router.post("/api/members", function (req, res) {
-  
-  db.Burger.create({
-    : req.body.name,
-    devoured: false
+  app.get("/api/members/:id", function (req, res) {
+    db.Members.findOne({raw : true}).then(function (data) {
+      let hbsMember = { member: data };
+      res.render("memprof", hbsMember);
+    });
+  });
+
+  app.post("/api/members", function (req, res) {
+    
+    db.Burger.create({
+    first_name: req.body.firstName,
+    last_name: req.body.lastName,
+    user_name: req.body.userName,
+    gender: req.body.gender,
+    email: req.body.email,
+    gender_orientation: req.body.genderPref,
+    about_me: DataTypes.TEXT,
+    password: req.body.password
   }).then(function (results) {
     res.json(results);
   });
 });
 
-router.put("/api/burgers/:id", function (req, res) {
-  // let beenEaten = { devoured: true };
+  app.put("/api/members/:id", function (req, res) {
   console.log("put request" + req.params.id);
   console.log(`${JSON.stringify(req.body)} from put request`)
-  db.Burger.update({
-   devoured: req.body.devoured
+  db.Members.update({
+    first_name: req.body.firstName,
+    last_name: req.body.lastName,
+    user_name: req.body.userName,
+    gender: req.body.gender,
+    email: req.body.email,
+    gender_orientation: req.body.genderPref,
+    about_me: DataTypes.TEXT,
+    password: req.body.password
   },{
     where: {
       id: req.params.id
@@ -40,6 +57,4 @@ router.put("/api/burgers/:id", function (req, res) {
     }
   });
 });
-
-// Export routes for server.js to use.
-module.exports = router;
+}
