@@ -25,11 +25,15 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 // Requiring our routes
 require("./controllers/login-controller")(app);
+
+require("./routes/login-routes")(app);
+
 const router = require("./controllers/members-controller.js");
 const router2 = require("./controllers/memberJoins-controller");
 
 app.use(router);
 app.use(router2);
+
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
