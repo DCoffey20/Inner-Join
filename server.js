@@ -8,6 +8,8 @@ const passport = require("./config/passport");
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
+const exphbs = require("express-handlebars");
+
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -21,8 +23,8 @@ app.use(passport.session());
 const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-
 // Requiring our routes
+require("./controllers/login-controller")(app);
 const router = require("./controllers/members-controller.js");
 const router2 = require("./controllers/memberJoins-controller");
 
