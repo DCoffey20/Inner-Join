@@ -1,0 +1,69 @@
+body {
+
+    background-image:url("Binary-Background.png") ; 
+
+}
+
+.pics{
+
+    margin-top: 50px;
+    margin-left: 350px;
+   
+    height: 150px;
+
+}
+
+.un{
+    margin-top: 50px;
+
+}
+.pinfo{
+    margin-left: 70px;
+}
+.row2{
+    margin-top: 115px;
+}
+
+.vlbuttons{
+    margin-top: 16.666px;
+    margin-left: 300px;
+}
+.pcard{
+    height: 150px;
+    width: 300px;
+    background-color: grey;
+}
+.nameinput{}
+.namecard{
+    height: 150px;
+    background-color: grey;
+}
+.row2card{
+    height: 300px; 
+    width: 400px; 
+    background-color: grey; 
+
+    
+}
+.row2input{
+width: 370px; 
+height: 220px;  
+}
+.input{
+  width: 200px;  
+}
+.vyj{
+   margin-right: 10px; 
+}
+.logout{
+    margin-right: 10px;
+}
+.navigation{
+border-style: inset;
+border-color: grey;
+background-color: rgb(7, 7, 7);
+}
+.navbutton{
+    background-color: grey;
+}
+.delete{}
