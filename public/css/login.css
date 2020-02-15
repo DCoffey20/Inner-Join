@@ -1,5 +1,10 @@
 body {
 
-    background-color: pink;
+    background-image:url("Binary-Background.png");
 
+}
+
+.logincard{
+    background-color: grey;
+    margin-top: 200px;
 }
