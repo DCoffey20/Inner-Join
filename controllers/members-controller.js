@@ -1,4 +1,3 @@
-const express = require("express");
 const db = require("../models");
 const passport = require("../config/passport");
 
@@ -9,7 +8,12 @@ module.exports = function(app) {
   });
 
   app.get("/api/members/:id", function (req, res) {
-    db.Members.findOne({raw : true}).then(function (data) {
+    db.Members.findOne({
+      raw : true,
+      where: {
+        id: req.params.id
+      }
+    }).then(function (data) {
       let hbsMember = { member: data };
       res.render("memprof", hbsMember);
     });
@@ -55,6 +59,23 @@ module.exports = function(app) {
     } else {
       res.status(200).end();
     }
+  });
+});
+
+//  The below is where I'm working on doing the requests to left join members on languages for find one and left join all members on languages.
+
+app.get("/api/members", function (req, res) {
+  db.Members.findAll({
+    where: {
+      id: req.params.id
+    },
+    include: [db.Author]
+  }).then(function(dbPost) {
+    res.json(dbPost);
+
+  }).then(function (data) {
+    let hbsMember = { member: data };
+    res.render("memprof", hbsMember);
   });
 });
 }
