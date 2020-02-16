@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   Members.associate = function(models) {
     Members.hasMany(models.Messages, { foreignKey: "sender_id" });
     Members.hasMany(models.Messages, { foreignKey: "receiver_id" });
-    Members.belongsToMany(models.Languages, { through: "MemberLanguages" });
+    Members.hasMany(models.Languages, { foreignKey: "member_id" });
     Members.hasMany(models.profilePics);
   };
   return Members;

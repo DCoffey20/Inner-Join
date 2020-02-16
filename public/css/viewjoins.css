@@ -1,0 +1,23 @@
+.navigation{
+    border-style: inset;
+    border-color: grey;
+    background-color: rgb(7, 7, 7);
+    }
+    .navbutton{
+        background-color: grey;
+    }
+
+    body {
+
+        background-image:url("Binary-Background.png") ; 
+    
+    }
+
+    .jcard{
+        height: 500px;
+        width: 700px;
+        background-color: grey;
+        justify-content: center;
+        margin-left: 520px;
+        margin-top: 200px;
+    }
