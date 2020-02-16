@@ -105,7 +105,7 @@ router.get(
 
 return res.json({
   error: false,
-  data: userJoins
+  data: [userJoins, currentUser]
 });
 
     })
