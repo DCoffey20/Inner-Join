@@ -1,7 +1,9 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const express = require("express");
-
+var cloudinary = require('cloudinary').v2;
+var crypto = require('crypto');
+var multipart = require('connect-multiparty');
 const router = express.Router();
 
 const awaitErorrHandlerFactory = middleware => {

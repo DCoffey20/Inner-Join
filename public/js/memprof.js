@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    require('dotenv').config();
     const picupload = $("#picupload");
     const firstnameinput = $("#fninput");
     const lastnameinput = $("#lninput");

@@ -8,8 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      url: {
+      title: {
         type: Sequelize.TEXT
+      },
+      image: {
+        type: Sequelize.JSON
       },
       createdAt: {
         allowNull: false,
