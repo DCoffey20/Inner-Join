@@ -4,7 +4,8 @@ const express = require("express");
 var cloudinary = require('cloudinary').v2;
 var crypto = require('crypto');
 var multipart = require('connect-multiparty');
-const router = express.Router();
+
+const memberRouter = express.Router();
 
 const awaitErorrHandlerFactory = middleware => {
   return async (req, res, next) => {
@@ -16,11 +17,11 @@ const awaitErorrHandlerFactory = middleware => {
   };
 };
 
-router.post("/api/login", passport.authenticate("local"), function (req, res) {
-  res.json(req.user);
+memberRouter.post("/api/login", passport.authenticate("local"), function (req, res) {
+  res.json(req.members);
 });
 
-router.get("/members/:id", function (req, res) {
+memberRouter.get("/members/:id", function (req, res) {
   db.Members.findOne({
     raw: true,
     where: {
@@ -33,7 +34,7 @@ router.get("/members/:id", function (req, res) {
   });
 });
 
-router.post("/api/members", function (req, res) {
+memberRouter.post("/api/members", function (req, res) {
 
   db.Members.create({
     first_name: req.body.firstName,
@@ -42,14 +43,14 @@ router.post("/api/members", function (req, res) {
     gender: req.body.gender,
     email: req.body.email,
     gender_orientation: req.body.genderPref,
-    about_me: DataTypes.TEXT,
+    about_me: req.body.about_me,
     password: req.body.password
   }).then(function (results) {
     res.json(results);
   });
 });
 
-router.put("/api/members/:id", function (req, res) {
+memberRouter.put("/api/members/:id", function (req, res) {
   console.log("put request" + req.params.id);
   console.log(`${JSON.stringify(req.body)} from put request`)
   db.Members.update({
@@ -59,7 +60,7 @@ router.put("/api/members/:id", function (req, res) {
     gender: req.body.gender,
     email: req.body.email,
     gender_orientation: req.body.genderPref,
-    about_me: DataTypes.TEXT,
+    about_me: req.body.about_me,
     password: req.body.password
   }, {
       where: {
@@ -76,7 +77,7 @@ router.put("/api/members/:id", function (req, res) {
     });
 });
 
-router.get(
+memberRouter.get(
   "/api/members/:id/matches",
 
   awaitErorrHandlerFactory(async (req, res, next) => {
@@ -114,4 +115,4 @@ return res.json({
       
   );
 
-module.exports = router;
+module.exports = memberRouter;

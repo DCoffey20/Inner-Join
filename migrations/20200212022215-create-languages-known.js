@@ -8,6 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      member_id: {
+        type: Sequelize.INTEGER,
+        foreignKey: true
+      },
       javascript: {
         type: Sequelize.BOOLEAN
       },
