@@ -32,7 +32,7 @@ router.post("/api/members", function (req, res) {
     gender: req.body.gender,
     email: req.body.email,
     gender_orientation: req.body.genderPref,
-    about_me: DataTypes.TEXT,
+    about_me: req.body.TEXT,
     password: req.body.password
   }).then(function (results) {
     res.json(results);
