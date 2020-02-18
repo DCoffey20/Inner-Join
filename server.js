@@ -29,7 +29,7 @@ require("./routes/login-routes")(app);
 
 require("./controllers/login-controller")(app);
 const memberRouter = require("./controllers/members-controller.js");
-const languageRouter = require("./controllers/memberlanguages-controler");
+const languageRouter = require("./controllers/memberlanguages-controller");
 app.use(memberRouter);
 app.use(languageRouter);
 
