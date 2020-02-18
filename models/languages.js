@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     objectivec: DataTypes.BOOLEAN
   }, {});
   Languages.associate = function(models) {
-    Languages.belongsToMany(models.Members, { through: 'MemberLanguages' });
+    //none
   };
   return Languages;
 };

@@ -4,7 +4,15 @@ const express = require("express");
 
 const router = express.Router();
 
-
+const awaitErorrHandlerFactory = middleware => {
+  return async (req, res, next) => {
+      try {
+          await middleware(req, res, next);
+      } catch (err) {
+          next(err);
+      }
+  };
+};
 
 router.post("/api/login", passport.authenticate("local"), function (req, res) {
   res.json(req.user);
@@ -65,5 +73,43 @@ router.put("/api/members/:id", function (req, res) {
       }
     });
 });
+
+router.get(
+  "/api/members/:id/matches",
+
+  awaitErorrHandlerFactory(async (req, res, next) => {
+
+      let currentUser = await db.Members.findOne({
+          raw: true,
+          where: {
+              id: req.params.id
+          },
+          include: {
+              model: db.Languages,
+              where: {
+                  member_id: req.params.id
+              }
+          }
+      });
+      console.log(currentUser);
+      let userJoins = await db.Members.findAll({
+          raw: true,
+          where: {
+              gender: currentUser.gender_orientation,
+              gender_orientation: currentUser.gender
+          },
+          include: {
+              model: db.Languages
+          }
+      });
+
+return res.json({
+  error: false,
+  data: [userJoins, currentUser]
+});
+
+    })
+      
+  );
 
 module.exports = router;
