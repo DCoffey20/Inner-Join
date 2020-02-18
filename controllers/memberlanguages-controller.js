@@ -66,3 +66,5 @@ languageRouter.put("/api/members/:id/languages/:member_id", function (req, res) 
         }
       });
   });
+
+module.exports = languageRouter;
