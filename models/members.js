@@ -1,4 +1,6 @@
 'use strict';
+const bcrypt = require("bcryptjs");
+
 module.exports = (sequelize, DataTypes) => {
   const Members = sequelize.define('Members', {
     first_name: DataTypes.STRING,
@@ -20,11 +22,21 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   }, {});
+
+  Members.prototype.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+  // Hooks are automatic methods that run during various phases of the User Model lifecycle
+  // In this case, before a User is created, we will automatically hash their password
+  Members.addHook("beforeCreate", function(members) {
+    members.password = bcrypt.hashSync(members.password, bcrypt.genSaltSync(10), null);
+  });
+
   Members.associate = function(models) {
     Members.hasMany(models.Messages, { foreignKey: "sender_id" });
     Members.hasMany(models.Messages, { foreignKey: "receiver_id" });
     Members.hasMany(models.Languages, { foreignKey: "member_id" });
-    Members.hasMany(models.profilePics);
+    Members.hasMany(models.profilePics, { foreignKey: "member_id" });
   };
   return Members;
 };
