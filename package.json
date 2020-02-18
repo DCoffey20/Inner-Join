@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.19.0",
     "cloudinary-core": "^2.8.0",
     "connect-multiparty": "^2.2.0",
     "dotenv": "^8.2.0",
