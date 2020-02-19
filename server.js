@@ -20,6 +20,7 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 // Requiring our routes
@@ -27,6 +28,13 @@ app.set("view engine", "handlebars");
 require("./routes/login-routes")(app);
 
 require("./controllers/login-controller")(app);
+<<<<<<< HEAD
+=======
+const memberRouter = require("./controllers/members-controller.js");
+const languageRouter = require("./controllers/memberlanguages-controller");
+app.use(memberRouter);
+app.use(languageRouter);
+>>>>>>> e715db16e1f55646f2cd14c67371f989e74d64c9
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {

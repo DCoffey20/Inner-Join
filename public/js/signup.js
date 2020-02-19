@@ -1,33 +1,53 @@
 $(document).ready(function() {
     // Getting references to our form and input
-    var signUpForm = $("form.signup");
-    var emailInput = $("input#email-input");
-    var passwordInput = $("input#password-input");
+    let signUpForm = $("#submit");
+    let emailInput = $("input#email-input");
+    let passwordInput = $("input#password-input");
+    let firstNameInput = $("input#first-name-input");
+    let lastNameInput = $("input#last-name-input");
+    let userNameInput = $("input#user-name-input");
+    let aboutMeInput = $("input#about-me-input");
   
     // When the signup button is clicked, we validate the email and password are not blank
-    signUpForm.on("submit", function(event) {
+    signUpForm.on("click", function(event) {
       event.preventDefault();
       console.log("button has been clicked")
       let userData = {
+        first_name: firstNameInput.val().trim(),
+        last_name: lastNameInput.val().trim(),
+        user_name: userNameInput.val().trim(),
         email: emailInput.val().trim(),
-        password: passwordInput.val().trim()
+        password: passwordInput.val().trim(),
+
+
+        about_me: aboutMeInput.val()
+
       };
   
       if (!userData.email || !userData.password) {
         return;
       }
       // If we have an email and password, run the signUpUser function
-      signUpUser(userData.email, userData.password);
+      signUpUser(userData.firstName, userData.lastName, userData.userName, userData.email, userData.password, userData.aboutMe);
+      firstNameInput.val("");
+      lastNameInput.val("");
+      userNameInput.val("");
       emailInput.val("");
       passwordInput.val("");
+      aboutMeInput.val("");
     });
   
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
-    function signUpUser(email, password) {
-      $.post("/api/signup", {
+    function signUpUser(first_name, last_name, user_name, email, password, about_me) {
+      console.log("ahhh");
+      $.post("/api/members", {
+        first_name:first_name,
+        last_name: last_name,
+        user_name: user_name,
         email: email,
-        password: password
+        password: password,
+        about_me: about_me
       })
         .then(function(data) {
           window.location.replace("/survey");

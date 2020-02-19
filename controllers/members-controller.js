@@ -28,8 +28,8 @@ memberRouter.get("/members/:id", function (req, res) {
       id: req.params.id
     }
   }).then(function (res) {
-    // let hbsMember = { member: data };
-    // res.render("memprof", hbsMember);
+    let hbsMember = { member: data };
+    res.render("memprof", hbsMember);
     console.log(res);
   });
 });

@@ -33,8 +33,8 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Members.associate = function(models) {
-    Members.hasMany(models.Messages, { foreignKey: "sender_id" });
-    Members.hasMany(models.Messages, { foreignKey: "receiver_id" });
+    Members.hasMany(models.Messages, { foreignKey: "sent_by_id" });
+    Members.hasMany(models.Messages, { foreignKey: "received_by_id" });
     Members.hasMany(models.Languages, { foreignKey: "member_id" });
     Members.hasMany(models.profilePics, { foreignKey: "member_id" });
   };
