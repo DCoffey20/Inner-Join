@@ -27,10 +27,6 @@ app.set("view engine", "handlebars");
 require("./routes/login-routes")(app);
 
 require("./controllers/login-controller")(app);
-const memberRouter = require("./controllers/members-controller.js");
-const languageRouter = require("./controllers/memberlanguages-controler");
-app.use(memberRouter);
-app.use(languageRouter);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
