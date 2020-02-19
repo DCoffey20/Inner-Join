@@ -56,6 +56,7 @@ joininfo.on("click", function(event){
         Ruby: Ruby.val(),
         php: php.val(),
         Perl: Perl.val(),
+        r: r.val(),
         Assembly: Assembly.val(),
         html: html.val(),
         css: css.val(),
@@ -68,6 +69,16 @@ joininfo.on("click", function(event){
     return;
         }  
         
+    updateJoinInfo(userData.Javascript, userData.C, userData.Csharp,
+        userData.Java, userData.Ruby, userData.php, userData.Swift,
+        userData.Cplusplus, userData.r, userData.Perl, userData.Assembly,
+        userData.html, userData.css, userData.Python, userData.Objectivec);
+
+});
+    
+function updateJoinInfo(Javascript, C, Csharp, Java, Ruby, 
+    php, Swift, Cplusplus, r, Perl, Assembly, html, css, 
+    Python, Objectivec){
     $.put("api/memberprofile", {
         javascript: Javascript,
         c: C,
@@ -87,8 +98,9 @@ joininfo.on("click", function(event){
     }).catch(function(err){
         console.log(err);
     });
-});
+
     
+}
 
     savename.on("click", function(event){
         event.preventDefault();
@@ -101,14 +113,20 @@ joininfo.on("click", function(event){
             return;
         }
     
+        updateName(userData.firstname, userData.lastname);
+
+    });
+
+    function updateName(firstname, lastname){
         $.put("api/memberprofile", {
-            firstname: firstname,
-            lastname: lastname
+            first_name: firstname,
+            last_name: lastname
         })
         .catch(function(err){
             console.log(err);
         });
-    });
+
+    }
         
 
   
@@ -133,6 +151,7 @@ joininfo.on("click", function(event){
 
 
 });
+
 
 
 
