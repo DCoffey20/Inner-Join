@@ -24,17 +24,17 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false
       },
-      gender: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
       email: {
         type: DataTypes.STRING,
         unique: true,
         allowNull: false,
         validate: {
-        isEmail: true
-      }
+          isEmail: true
+        }
+      },
+      gender: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       gender_orientation: {
         type: Sequelize.INTEGER,

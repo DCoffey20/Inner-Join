@@ -8,38 +8,38 @@ $(document).ready(function(){
     const aboutsubmit = $("#aboutsubmit");
     const joininfo = $("#editjoininfo");
 
-    const Javascript = $("#JSedit");
-    const Cplusplus =  $("#C++edit");
-    const C = $("#cedit");
-    const Csharp = $("#csharpedit");
-    const Swift = $("#Swiftedit");
-    const Java = $("#Javaedit");
-    const Ruby = $("#Rubyedit");
+    const javascript = $("#JSedit");
+    const cPlusPlus =  $("#C++edit");
+    const c = $("#cedit");
+    const cSharp = $("#csharpedit");
+    const swift = $("#Swiftedit");
+    const java = $("#Javaedit");
+    const ruby = $("#Rubyedit");
     const php = $("#PHPedit");
-    const Perl = $("#Perledit");
-    const Assembly = $("#Assemblyedit");
+    const perl = $("#Perledit");
+    const assembly = $("#Assemblyedit");
     const html = $("#HTMLedit");
     const css = $("#CSSedit");
-    const Python = $("#Pythonedit");
-    const Objectivec = $("#Objectivecedit");
+    const python = $("#Pythonedit");
+    const objectiveC = $("#Objectivecedit");
     const r = $("#Redit");
     
-    $.get("/api/memberprofile").then(function(data){
+    $.get("/api/members").then(function(data){
 
-        $("#JSedit").checkbox(data.javascript);
-        $("#C++edit").checkbox(data.CPlusPlus);
-        $("#cedit").checkbox(data.c);
-        $("#csharpedit").checkbox(data.csharp);
-        $("#Swiftedit").checkbox(data.swift);
-        $("#Javaedit").checkbox(data.java);
-        $("#Rubyedit").checkbox(data.ruby);
-        $("#PHPedit").checkbox(data.PHP);
-        $("#Perledit").checkbox(data.perl);
-        $("#Assemblyedit").checkbox(data.assembly);
-        $("#Objectivecedit").checkbox(data.objectivec);
-        // $("#HTMLedit").checkbox(data.HTML);
-        // $("#CSSedit").checkbox(data.CSS);
-        // $("#Pythonedit").checkbox(data.python);
+        javascript.checkbox(data.javascript);
+        cPlusPlus.checkbox(data.cPlusPlus);
+        c.checkbox(data.c);
+        cSharp.checkbox(data.csharp);
+        swift.checkbox(data.swift);
+        java.checkbox(data.java);
+        ruby.checkbox(data.ruby);
+        php.checkbox(data.PHP);
+        perl.checkbox(data.perl);
+        assembly.checkbox(data.assembly);
+        objectiveC.checkbox(data.objectiveC);
+        // html.checkbox(data.html);
+        // css.checkbox(data.css);
+        // python.checkbox(data.python);
 
     });
 
@@ -47,54 +47,54 @@ $(document).ready(function(){
 joininfo.on("click", function(event){
     event.preventDefault();
     let userData = {
-        Javascript: Javascript.val(),
-        Cplusplus: Cplusplus.val(),
-        C: C.val(),
-        Csharp: Csharp.val(),
-        Swift: Swift.val(),
-        Java: Java.val(),
-        Ruby: Ruby.val(),
+        javascript: javascript.val(),
+        cPlusPlus: cPlusPlus.val(),
+        c: c.val(),
+        cSharp: cSharp.val(),
+        swift: swift.val(),
+        java: java.val(),
+        ruby: ruby.val(),
         php: php.val(),
-        Perl: Perl.val(),
+        perl: perl.val(),
         r: r.val(),
-        Assembly: Assembly.val(),
+        assembly: assembly.val(),
         html: html.val(),
         css: css.val(),
-        Python: Python.val(),
-        Objectivec: objectivec.val()
+        python: python.val(),
+        objectiveC: objectiveC.val()
 
     }
-    if (!Javascript || !Cplusplus || !C || !Csharp || !Swift || !Java || 
-    !Ruby || !php || !Perl || !Assembly || !html || !css || !Python || !Objectivec){
+    if (!javascript || !cPlusPlus || !c || !cSharp || !swift || !java || 
+    !ruby || !php || !perl || !assembly || !html || !css || !python || !objectiveC){
     return;
         }  
         
-    updateJoinInfo(userData.Javascript, userData.C, userData.Csharp,
-        userData.Java, userData.Ruby, userData.php, userData.Swift,
-        userData.Cplusplus, userData.r, userData.Perl, userData.Assembly,
-        userData.html, userData.css, userData.Python, userData.Objectivec);
+    updateJoinInfo(userData.javascript, userData.c, userData.cSharp,
+        userData.java, userData.ruby, userData.php, userData.swift,
+        userData.cPlusPlus, userData.r, userData.perl, userData.assembly,
+        userData.html, userData.css, userData.python, userData.objectiveC);
 
 });
     
-function updateJoinInfo(Javascript, C, Csharp, Java, Ruby, 
-    php, Swift, Cplusplus, r, Perl, Assembly, html, css, 
-    Python, Objectivec){
-    $.put("api/memberprofile", {
-        javascript: Javascript,
-        c: C,
-        csharp: Csharp,
-        java: Java,
-        ruby: Ruby,
-        PHP: php,
-        swift: Swift,
-        CPlusPlus: Cplusplus,
-        R: r,
-        perl: Perl,
-        assembly: Assembly,
-        HTML: html,
-        CSS: css,
-        python: Python,
-        objectivec: Objectivec
+function updateJoinInfo(javascript, c, cSharp, java, ruby, 
+    php, swift, cPlusPlus, r, perl, assembly, html, css, 
+    python, objectiveC){
+    $.put("api/members", {
+        javascript: javascript,
+        c: c,
+        csharp: cSharp,
+        java: java,
+        ruby: ruby,
+        php: php,
+        swift: swift,
+        cPlusPlus: cPlusPlus,
+        r: r,
+        perl: perl,
+        assembly: assembly,
+        html: html,
+        css: css,
+        python: python,
+        objectiveC: objectiveC
     }).catch(function(err){
         console.log(err);
     });
@@ -105,22 +105,22 @@ function updateJoinInfo(Javascript, C, Csharp, Java, Ruby,
     savename.on("click", function(event){
         event.preventDefault();
         let userData = {
-            firstname: firstnameinput.val().trim(),
-            lastname: lastnameinput.val().trim()
+            first_name: firstnameinput.val().trim(),
+            last_name: lastnameinput.val().trim()
         };
     
         if (!userData.firstnameinput || !userData.lastnameinput){
             return;
         }
     
-        updateName(userData.firstname, userData.lastname);
+        updateName(userData.first_name, userData.last_name);
 
     });
 
-    function updateName(firstname, lastname){
-        $.put("api/memberprofile", {
-            first_name: firstname,
-            last_name: lastname
+    function updateName(first_name, last_name){
+        $.put("api/members", {
+            first_name: first_name,
+            last_name: last_name
         })
         .catch(function(err){
             console.log(err);
@@ -141,7 +141,7 @@ function updateJoinInfo(Javascript, C, Csharp, Java, Ruby,
             return;
         }
     
-        $.put("api/memberprofile", {
+        $.put("api/member", {
             about: about
         })
         .catch(function(err){

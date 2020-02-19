@@ -27,16 +27,16 @@ module.exports = {
       ruby: {
         type: Sequelize.BOOLEAN
       },
-      PHP: {
+      php: {
         type: Sequelize.BOOLEAN
       },
       swift: {
         type: Sequelize.BOOLEAN
       },
-      CPlusPlus: {
+      cPlusPlus: {
         type: Sequelize.BOOLEAN
       },
-      R: {
+      r: {
         type: Sequelize.BOOLEAN
       },
       perl: {
@@ -45,7 +45,16 @@ module.exports = {
       assembly: {
         type: Sequelize.BOOLEAN
       },
-      objectivec: {
+      html: {
+        type: Sequelize.BOOLEAN
+      },
+      css: {
+        type: Sequelize.BOOLEAN
+      },
+      python: {
+        type: Sequelize.BOOLEAN
+      },
+      objectiveC: {
         type: Sequelize.BOOLEAN
       },
       createdAt: {
