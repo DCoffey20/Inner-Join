@@ -18,13 +18,11 @@ $(document).ready(function() {
         user_name: userNameInput.val().trim(),
         email: emailInput.val().trim(),
         password: passwordInput.val().trim(),
-
-
         about_me: aboutMeInput.val()
 
       };
   
-      if (!userData.email || !userData.password) {
+      if (!userData.email || !userData.password || !userData.first_name || !userData.last_name || !userData.user_name) {
         return;
       }
       // If we have an email and password, run the signUpUser function

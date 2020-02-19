@@ -1,98 +1,89 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-    const SubmitSurvey = $("#surveysubmit");
+    const submitSurvey = $("#surveysubmit");
 
-    const Javascript = $("#JS");
-    const Cplusplus =  $("#C++");
-    const C = $("#c");
-    const Csharp = $("#csharp");
-    const Swift = $("#Swift");
-    const Java = $("#Java");
-    const Ruby = $("#Ruby");
+    const javascript = $("#JS");
+    const cPlusPlus = $("#C++");
+    const c = $("#c");
+    const cSharp = $("#csharp");
+    const swift = $("#swift");
+    const java = $("#Java");
+    const ruby = $("#Ruby");
     const php = $("#PHP");
-    const Perl = $("#Perl");
-    const Assembly = $("#Assembly");
+    const perl = $("#Perl");
+    const assembly = $("#Assembly");
     const html = $("#HTML");
     const css = $("#CSS");
-    const Python = $("#Python");
-    const Objectivec = $("#Objectivec");
+    const python = $("#Python");
+    const objectiveC = $("#Objectivec");
     const r = $("#R");
 
-    const Gender = $("#gender");
-    const InterestedIn = $("#interestedin");
-    const FirstName = $("#firstname");
-    const LastName = $("#lastname");
+    const gender = $("#gender");
+    const gender_orientation = $("#interestedin");
 
 
-SubmitSurvey.on("click", function(event){
+    submitSurvey.on("click", function (event) {
 
-event.preventDefault();
-let userData = {
-    Javascript: Javascript.val(),
-    Cplusplus: Cplusplus.val(),
-    C: C.val(),
-    Csharp: Csharp.val(),
-    Swift: Swift.val(),
-    Java: Java.val(),
-    Ruby: Ruby.val(),
-    php: php.val(),
-    Perl: Perl.val(),
-    r: r.val(),
-    Assembly: Assembly.val(),
-    html: html.val(),
-    css: css.val(),
-    Python: Python.val(),
-    Objectivec: Objectivec.val(),
-    Gender: Gender.val(),
-    InterestedIn: InterestedIn.val(),
-    FirstName: FirstName.val(),
-    LastName: LastName.val()
-}
+        event.preventDefault();
+        let userData = {
+            javascript: javascript.val(),
+            cPlusPlus: cPlusPlus.val(),
+            c: c.val(),
+            cSharp: cSharp.val(),
+            swift: swift.val(),
+            java: java.val(),
+            ruby: ruby.val(),
+            php: php.val(),
+            perl: perl.val(),
+            r: r.val(),
+            assembly: assembly.val(),
+            html: html.val(),
+            css: css.val(),
+            python: python.val(),
+            objectiveC: objectiveC.val(),
+            gender: gender.val(),
+            gender_orientation: gender_orientation.val(),
+        }
 
-submitSurvey(userData.Javascript, userData.C, userData.Csharp,
-    userData.Java, userData.Ruby, userData.php, userData.Swift,
-    userData.Cplusplus, userData.r, userData.Perl, userData.Assembly,
-    userData.html, userData.css, userData.Python, userData.Objectivec,
-    userData.Gender, userData.InterestedIn, userData.FirstName,
-    userData.LastName);
+        submitSurvey(userData.javascript, userData.c, userData.cSharp,
+            userData.java, userData.ruby, userData.php, userData.swift,
+            userData.cPlusPlus, userData.r, userData.perl, userData.assembly,
+            userData.html, userData.css, userData.python, userData.objectiveC,
+            userData.gender, userData.gender_orientation);
 
-});
+    });
 
-function submitSurvey(Javascript, C, Csharp, Java, Ruby, 
-php, Swift, Cplusplus, r, Perl, Assembly, html, css, 
-Python, Objectivec, Gender, InterestedIn, FirstName,
-LastName){
-    $.post("api/memberprofile", {
+    function submitSurvey(javascript, c, cSharp, java, ruby,
+        php, swift, cPlusPlus, r, perl, assembly, html, css,
+        python, objectiveC, gender, gender_orientation) {
+        $.post("/api/members/languages", {
 
-    javascript: Javascript,
-    CPlusPlus: Cplusplus,
-    c: C,
-    csharp: Csharp,
-    java: Java,
-    ruby: Ruby,
-    PHP: php,
-    swift: Swift,
-    R: r,
-    perl: Perl,
-    assembly: Assembly,
-    HTML: html,
-    CSS: css,
-    python: Python,
-    objectivec: Objectivec,
+            javascript: javascript,
+            cPlusPlus: cPlusPlus,
+            c: c,
+            csharp: cSharp,
+            java: java,
+            ruby: ruby,
+            php: php,
+            swift: swift,
+            r: r,
+            perl: perl,
+            assembly: assembly,
+            html: html,
+            css: css,
+            python: python,
+            objectiveC: objectiveC,
+            gender: gender,
+            gender_orientation: gender_orientation,
+        })
+            .then(function () {
+                window.location.replace("/memberprofile")
+            })
+            .catch(function (err) {
+                console.log(err)
+            });
 
-    gender: Gender,
-    gender_orientation: InterestedIn,
-    first_name: FirstName,
-    last_name: LastName
-})
-.then(function(){
-    window.location.replace("/memberprofile")
-})
-.catch(function(err){
-    console.log(err)
-});
-
-}
+    }
 
 
 });

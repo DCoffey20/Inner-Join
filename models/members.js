@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
     user_name: DataTypes.STRING,
-    gender: DataTypes.INTEGER,
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -15,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: true
       }
     },
+    gender: DataTypes.INTEGER,
     gender_orientation: DataTypes.INTEGER,
     about_me: DataTypes.TEXT,
     password: {
