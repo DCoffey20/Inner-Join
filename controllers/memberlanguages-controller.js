@@ -13,11 +13,11 @@ const awaitErorrHandlerFactory = middleware => {
   };
 };
 
-languageRouter.post("/api/members/:id/languages", function (req, res) {
+languageRouter.post("/api/members/languages", function (req, res) {
   console.log("put request" + req.params.id);
   console.log(`${JSON.stringify(req.body)} from put request`)
   db.Languages.create({
-    member_id: req.params.id,
+    member_id: req.user.id,
     javascript: req.body.javascript,
     c: req.body.c,
     csharp: req.body.csharp,
@@ -38,8 +38,8 @@ languageRouter.post("/api/members/:id/languages", function (req, res) {
   });
 });
 
-languageRouter.put("/api/members/:id/languages/:member_id", function (req, res) {
-  console.log("put request" + req.params.id);
+languageRouter.put("/api/members/languages_edit", function (req, res) {
+  console.log("put request" + req.user.id);
   console.log(`${JSON.stringify(req.body)} from put request`)
   db.Languages.update({
     javascript: req.body.javascript,
@@ -59,7 +59,7 @@ languageRouter.put("/api/members/:id/languages/:member_id", function (req, res) 
     objectiveC: req.body.objectiveC,
   }, {
       where: {
-        member_id: req.params.member_id
+        member_id: req.user.id
       }
     }
   ).then(result => {

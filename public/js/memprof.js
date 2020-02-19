@@ -79,7 +79,7 @@ joininfo.on("click", function(event){
 function updateJoinInfo(javascript, c, cSharp, java, ruby, 
     php, swift, cPlusPlus, r, perl, assembly, html, css, 
     python, objectiveC){
-    $.put("api/members", {
+    $.put("/api/members/languages_edit", {
         javascript: javascript,
         c: c,
         csharp: cSharp,
@@ -141,7 +141,7 @@ function updateJoinInfo(javascript, c, cSharp, java, ruby,
             return;
         }
     
-        $.put("api/member", {
+        $.put("api/members", {
             about: about
         })
         .catch(function(err){

@@ -56,7 +56,7 @@ $(document).ready(function () {
     function submitSurvey(javascript, c, cSharp, java, ruby,
         php, swift, cPlusPlus, r, perl, assembly, html, css,
         python, objectiveC, gender, gender_orientation) {
-        $.post("api/memberprofile", {
+        $.post("/api/members/languages", {
 
             javascript: javascript,
             cPlusPlus: cPlusPlus,
