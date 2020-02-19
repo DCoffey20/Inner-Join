@@ -9,22 +9,36 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       first_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       last_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       user_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false
       },
       gender: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       email: {
-        type: Sequelize.STRING
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false,
+        validate: {
+        isEmail: true
+      }
       },
       gender_orientation: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       about_me: {
         type: Sequelize.TEXT
@@ -32,6 +46,16 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      sent_by_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        foreignKey: true
+      },
+      received_by_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        foreignKey: true
       },
       updatedAt: {
         allowNull: false,

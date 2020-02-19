@@ -8,14 +8,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      sender_id: {
-        type: Sequelize.INTEGER
+      sent_by_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        foreignKey: true
       },
-      receiver_id: {
-        type: Sequelize.INTEGER
+      received_by_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        foreignKey: true
       },
       message: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
