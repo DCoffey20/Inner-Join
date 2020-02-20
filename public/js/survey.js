@@ -18,10 +18,6 @@ $(document).ready(function () {
     const objectiveC = $("#Objectivec");
     const r = $("#R");
 
-    const gender = $("#gender");
-    const gender_orientation = $("#interestedin");
-
-
     submitSurvey.on("click", function (event) {
 
         event.preventDefault();
@@ -41,15 +37,12 @@ $(document).ready(function () {
             css: css.val(),
             python: python.val(),
             objectiveC: objectiveC.val(),
-            gender: gender.val(),
-            gender_orientation: gender_orientation.val(),
         }
 
         submitSurvey(userData.javascript, userData.c, userData.cSharp,
             userData.java, userData.ruby, userData.php, userData.swift,
             userData.cPlusPlus, userData.r, userData.perl, userData.assembly,
-            userData.html, userData.css, userData.python, userData.objectiveC,
-            userData.gender, userData.gender_orientation);
+            userData.html, userData.css, userData.python, userData.objectiveC);
 
     });
 
