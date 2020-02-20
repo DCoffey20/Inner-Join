@@ -7,6 +7,8 @@ $(document).ready(function() {
     let lastNameInput = $("input#last-name-input");
     let userNameInput = $("input#user-name-input");
     let aboutMeInput = $("input#about-me-input");
+    const gender = $("#gender");
+    const gender_orientation = $("#interestedin");
   
     // When the signup button is clicked, we validate the email and password are not blank
     signUpForm.on("click", function(event) {
@@ -18,21 +20,25 @@ $(document).ready(function() {
         user_name: userNameInput.val().trim(),
         email: emailInput.val().trim(),
         password: passwordInput.val().trim(),
-        about_me: aboutMeInput.val()
-
+        about_me: aboutMeInput.val(),
+        gender: gender.val(),
+        gender_orientation: gender_orientation.val(),
       };
   
       if (!userData.email || !userData.password || !userData.first_name || !userData.last_name || !userData.user_name) {
         return;
       }
       // If we have an email and password, run the signUpUser function
-      signUpUser(userData.firstName, userData.lastName, userData.userName, userData.email, userData.password, userData.aboutMe);
+      signUpUser(userData.first_name, userData.last_name, userData.user_name, userData.email, userData.password, userData.about_me, userData.gender, userData.gender_orientation);
+      console.log(userData);
       firstNameInput.val("");
       lastNameInput.val("");
       userNameInput.val("");
       emailInput.val("");
       passwordInput.val("");
       aboutMeInput.val("");
+      gender.val("");
+      gender_orientation.val("");
     });
   
     // Does a post to the signup route. If successful, we are redirected to the members page
