@@ -13,8 +13,7 @@ const awaitErorrHandlerFactory = middleware => {
   };
 };
 
-languageRouter.post("/api/members/languages", function (req, res) {
-  console.log("put request" + req.params.id);
+languageRouter.post("/api/members/:id/languages", function (req, res) {
   console.log(`${JSON.stringify(req.body)} from put request`)
   db.Languages.create({
     member_id: req.user.id,
@@ -38,8 +37,8 @@ languageRouter.post("/api/members/languages", function (req, res) {
   });
 });
 
-languageRouter.put("/api/members/languages_edit", function (req, res) {
-  console.log("put request" + req.user.id);
+languageRouter.put("/api/members/:id/languages", function (req, res) {
+  console.log("put request" + req.params.id);
   console.log(`${JSON.stringify(req.body)} from put request`)
   db.Languages.update({
     javascript: req.body.javascript,
