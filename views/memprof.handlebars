@@ -1,2 +1,173 @@
-  
-  
+<nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6 navigation">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
+            </svg>
+        <span class="font-semibold text-xl tracking-tight">Inner-Join</span>
+    </div>
+    <div class="block lg:hidden">
+        <button
+            class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+        </button>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+        <div class="text-sm lg:flex-grow">
+
+        </div>
+        <div>
+            <button
+                class="navbutton hover:bg-yellow-400 text-white font-bold py-2 px-4 border-b-4  hover:border-gold-500 rounded vyj">
+                View Your Joins
+            </button>
+            <button
+                class="navbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded logout">
+                Logout
+            </button>
+            <button
+                class="navbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded delete">
+                Delete Account
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="flex">
+    <div class="w-1/2  h-12 pics">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg pcard">
+
+            <div class="px-6 py-4">
+                <div class="flex">
+                    <div class="w-1/2">
+                        <div class="font-bold text-xl mb-2">Picture(s)</div>
+                    </div>
+                    <div class="w-1/2">
+                        <button
+                            class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded">
+                            Upload
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="px-6 py-4">
+                <input placeholder="Upload your files here" class="input" id="picupload"></input>
+            </div>
+            <div class="px-6 py-4">
+
+            </div>
+        </div>
+    </div>
+    <div class="w-1/2  h-12 un">
+        <div class="max-w-sm rounded overflow-hidden shadow-lg namecard">
+            <div class="px-6 py-4">
+                <div class="flex">
+                    <div class="w-1/2">
+                        <div class="font-bold text-xl mb-2">Name</div>
+                    </div>
+                    <div class="w-1/2">
+                        <button
+                            class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded"
+                            id="savename">
+                            Save Name
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="px-6 py-4">
+                <input placeholder="First Name" class="input" id="fninput">{{member.first_name}}</input>
+            </div>
+            <div class="px-6 py-4">
+                <input placeholder="Last Name" class="input" id="lninput">{{member.last_name}}</input>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="flex row2">
+    <div class="w-1/3 h-12 pinfo">
+        <div class="rounded overflow-hidden shadow-lg row2card">
+            <div class="px-6 py-4">
+                <div class="flex">
+                    <div class="w-1/2">
+                        <div class="font-bold text-xl mb-2">Edit your personal info:</div>
+                    </div>
+                    <div class="w-1/2">
+                        <button
+                            class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded"
+                            id="aboutsubmit">
+                            Commit
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="px-6 py-4">
+                <input placeholder="" class="row2input" id="aboutinput">{{member.about_me}}</input>
+            </div>
+        </div>
+    </div>
+    <div class="w-1/3 h-12">
+        <div class="rounded overflow-hidden shadow-lg row2card">
+            <div class="rounded overflow-hidden shadow-lg row2card">
+                <div class="px-6 py-4">
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <div class="font-bold text-xl mb-2">Edit your join info:</div>
+                        </div>
+                        <div class="w-1/2">
+                            <button
+                                class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded"
+                                id="editjoininfo">
+                                Commit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-4">
+                    <input id="JSedit" type="checkbox" name="loc" value="JavaScript">JavaScript<br>
+                    <input id="C++edit" type="checkbox" name="loc" value="C++">C++<br>
+                    <input id="cedit" type="checkbox" name="loc" value="C">C<br>
+                    <input id="csharpedit" type="checkbox" name="loc" value="C#">C#<br>
+                    <input id="Pythonedit" type="checkbox" name="loc" value="Python">Python<br>
+                    <input id="Swiftedit" type="checkbox" name="loc" value="Swift">Swift<br>
+                    <input id="Redit" type="checkbox" name="loc" value="R">R<br>
+                    <input id="Javaedit" type="checkbox" name="loc" value="Java">Java<br>
+                    <input id="Rubyedit" type="checkbox" name="loc" value="Ruby">Ruby<br>
+                    <input id="PHPedit" type="checkbox" name="loc" value="PHP">PHP<br>
+                    <input id="Perledit" type="checkbox" name="loc" value="Perl">Perl<br>
+                    <input id="Assemblyedit" type="checkbox" name="loc" value="Assembly">Assembly<br>
+                    <input id="Objectivecedit" type="checkbox" name="loc" value="Objectivec">Objectivec<br>
+                    <input id="HTMLedit" type="checkbox" name="loc" value="HTML">HTML<br>
+                    <input id="CSSedit" type="checkbox" name="loc" value="CSS">CSS<br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-1/3 h-12">
+        <div class="rounded overflow-hidden shadow-lg row2card">
+            <div class="rounded overflow-hidden shadow-lg row2card">
+                <div class="px-6 py-4">
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <div class="font-bold text-xl mb-2">Messages</div>
+                        </div>
+                        <div class="w-1/2">
+                            <button
+                                class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded">
+                                Check Messages
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-4">
+                    <input class="row2input"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
