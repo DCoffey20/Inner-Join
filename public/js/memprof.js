@@ -7,7 +7,9 @@ $(document).ready(function () {
     const aboutInput = $("#aboutinput");
     const aboutsubmit = $("#aboutsubmit");
     const joininfo = $("#editjoininfo");
-    const logoutUser = $("#logoutuser");
+    let logoutUser = $(".logout");
+    let deleteUser = $(".delete");
+    let viewJoins = $(".vyj");
 
     const javascript = $("#JSedit");
     const cPlusPlus = $("#C++edit");
@@ -25,25 +27,25 @@ $(document).ready(function () {
     const objectiveC = $("#Objectivecedit");
     const r = $("#Redit");
 
-    $.get("/api/members").then(function (data) {
+    // $.get("/api/members").then(function (data) {
 
-        javascript.checkbox(data.javascript);
-        cPlusPlus.checkbox(data.cPlusPlus);
-        c.checkbox(data.c);
-        cSharp.checkbox(data.csharp);
-        swift.checkbox(data.swift);
-        java.checkbox(data.java);
-        ruby.checkbox(data.ruby);
-        php.checkbox(data.php);
-        perl.checkbox(data.perl);
-        assembly.checkbox(data.assembly);
-        objectiveC.checkbox(data.objectiveC);
-        html.checkbox(data.html);
-        css.checkbox(data.css);
-        python.checkbox(data.python);
-        firstnameinput.val(data.first_name);
+    //     javascript.checkbox(data.javascript);
+    //     cPlusPlus.checkbox(data.cPlusPlus);
+    //     c.checkbox(data.c);
+    //     cSharp.checkbox(data.csharp);
+    //     swift.checkbox(data.swift);
+    //     java.checkbox(data.java);
+    //     ruby.checkbox(data.ruby);
+    //     php.checkbox(data.php);
+    //     perl.checkbox(data.perl);
+    //     assembly.checkbox(data.assembly);
+    //     objectiveC.checkbox(data.objectiveC);
+    //     html.checkbox(data.html);
+    //     css.checkbox(data.css);
+    //     python.checkbox(data.python);
+    //     firstnameinput.val(data.first_name);
 
-    });
+    // });
 
 
     joininfo.on("click", function (event) {
@@ -164,27 +166,37 @@ $(document).ready(function () {
     }
     )
 
-        console.log("upload widget", uploadWidget);
-        uploadWidget.on("click", function () {
-            console.log("HI");
-            myWidget.open();
-        }).then(function(result){
-            let newProfilePicture = {
-                url: result.info.url,
-                member_id: req.user.id
-            }
-            $.post("api/members/profilepictures", {
-                url: newProfilePicture.url,
-                member_id: newProfilePicture.member_id
-            }).catch(function (err) {
-                console.log(err);
-            });
+        // console.log("upload widget", uploadWidget);
+        // uploadWidget.on("click", function () {
+        //     console.log("HI");
+        //     myWidget.open();
+        // }).then(function(result){
+        //     let newProfilePicture = {
+        //         url: result.info.url,
+        //         member_id: req.user.id
+        //     }
+        //     $.post("api/members/profilepictures", {
+        //         url: newProfilePicture.url,
+        //         member_id: newProfilePicture.member_id
+        //     }).catch(function (err) {
+        //         console.log(err);
+        //     });
             
-        });
+        // });
 
         logoutUser.on("click", function (event) {
             event.preventDefault();
-            window.location.replace("/login");
+            window.location.replace("/");
+        });
+
+        deleteUser.on("click", function (event){
+            event.preventDefault();
+            window.location.replace("/")
+        });
+
+        viewJoins.on("click", function (event){
+            event.preventDefault();
+            window.location.replace("/viewjoins")
         });
 });
 

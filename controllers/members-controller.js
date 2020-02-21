@@ -89,7 +89,7 @@ memberRouter.put("/api/members", function (req, res) {
 });
 
 memberRouter.get(
-  "/api/members/:id/matches",
+  "/api/members/matches",
 
   awaitErorrHandlerFactory(async (req, res, next) => {
 
