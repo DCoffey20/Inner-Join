@@ -24,14 +24,14 @@ languageRouter.post("/api/members/:id/languages", function (req, res) {
     ruby: req.body.ruby,
     php: req.body.php,
     swift: req.body.swift,
-    cPlusPlus: req.body.cplusplus,
+    cPlusPlus: req.body.cPlusPlus,
     r: req.body.r,
     perl: req.body.perl,
     assembly: req.body.assembly,
     html: req.body.html,
     css: req.body.css,
     python: req.body.python,
-    objectiveC: req.body.objectivec,
+    objectiveC: req.body.objectiveC,
   }).then(function (results) {
     res.json(results);
   });
