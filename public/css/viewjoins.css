@@ -1,22 +1,33 @@
 .navigation{
     border-style: inset;
     border-color: grey;
-    background-color: rgb(7, 7, 7);
+    background-image: url("331075.png");
+    color: white;
     }
     .navbutton{
-        background-color: grey;
+        background-image: url("Glowingbluebutton.png");
+    }
+
+    .submitbutton{
+        background-image: url("Glowingbluebutton.png");
+    }
+
+    .buttonpositioner{
+        margin-left: 130px;
+        margin-top: 5px;
     }
 
     body {
 
-        background-image:url("Binary-Background.png") ; 
+        background-image:url("913717.jpg"); 
     
     }
 
     .jcard{
         height: 500px;
         width: 700px;
-        background-color: grey;
+        background-image: url("331075.png");
+        color: white;
         justify-content: center;
         margin-left: 520px;
         margin-top: 200px;
