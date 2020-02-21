@@ -26,19 +26,19 @@ const awaitErorrHandlerFactory = middleware => {
 
 //Probably needs to be moved to login controller
 memberRouter.post("/api/login", passport.authenticate("local"), function (req, res) {
-  res.json(req.members);
+  res.json(req.user);
 });
 
-memberRouter.get("/api/members/:id", function (req, res) {
+memberRouter.get("/api/members", function (req, res) {
   db.Members.findOne({
     raw: true,
     where: {
-      id: req.params.id
+      id: req.user.id
     }
-  }).then(function (res) {
-    let hbsMember = { member: data };
+  }).then(function (data) {
+    console.log(data);
+    let hbsMember = data;
     res.render("memprof", hbsMember);
-    console.log(res);
   });
 });
 
@@ -61,21 +61,21 @@ memberRouter.post("/api/members", function (req, res) {
   });
 });
 
-memberRouter.put("/api/members/:id", function (req, res) {
-  console.log("put request" + req.params.id);
+memberRouter.put("/api/members", function (req, res) {
+  console.log("put request" + req.user.id);
   console.log(`${JSON.stringify(req.body)} from put request`)
   db.Members.update({
-    first_name: req.body.firstName,
-    last_name: req.body.lastName,
-    user_name: req.body.userName,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    user_name: req.body.user_name,
     email: req.body.email,
     gender: req.body.gender,
-    gender_orientation: req.body.gender_preference,
+    gender_orientation: req.body.gender_orientation,
     about_me: req.body.about_me,
     password: req.body.password
   }, {
       where: {
-        id: req.params.id
+        id: req.user.id
       }
     }).then(result => {
       console.log(`from put ${result}`);
@@ -96,7 +96,7 @@ memberRouter.get(
     let currentUser = await db.Members.findOne({
       raw: true,
       where: {
-        id: req.params.id
+        id: req.user.id
       },
       include: {
         model: db.Languages
@@ -187,7 +187,7 @@ memberRouter.delete("/api/members/:id", function (req, res) {
   
   db.Members.destroy({
       where: {
-        id: req.params.id
+        id: req.user.id
       }
     }).then(result => {
       console.log(`from put ${result}`);

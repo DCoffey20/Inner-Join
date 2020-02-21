@@ -40,6 +40,7 @@ $(document).ready(function () {
         // html.checkbox(data.html);
         // css.checkbox(data.css);
         // python.checkbox(data.python);
+        firstnameinput.val(data.first_name);
 
     });
 
@@ -94,7 +95,8 @@ $(document).ready(function () {
             html: html,
             css: css,
             python: python,
-            objectiveC: objectiveC
+            objectiveC: objectiveC,
+            member_id: req.user.id
         }).catch(function (err) {
             console.log(err);
         });
@@ -166,11 +168,17 @@ $(document).ready(function () {
             console.log("HI");
             myWidget.open();
         }).then(function(result){
-            $.post("api/members/:id/profilepictures"){
-                let newProfilePicture = {
-                    url: result.info.url
-                }
+            let newProfilePicture = {
+                url: result.info.url,
+                member_id: req.user.id
             }
+            $.post("api/members/:id/profilepictures", {
+                url: newProfilePicture.url,
+                member_id: newProfilePicture.member_id
+            }).catch(function (err) {
+                console.log(err);
+            });
+            
         });
 
 

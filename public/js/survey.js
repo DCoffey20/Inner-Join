@@ -37,20 +37,20 @@ $(document).ready(function () {
             css: css.val(),
             python: python.val(),
             objectiveC: objectiveC.val(),
+            member_id: req.user.id
         }
 
         submitSurvey(userData.javascript, userData.c, userData.cSharp,
             userData.java, userData.ruby, userData.php, userData.swift,
             userData.cPlusPlus, userData.r, userData.perl, userData.assembly,
-            userData.html, userData.css, userData.python, userData.objectiveC);
+            userData.html, userData.css, userData.python, userData.objectiveC, userData.member_id);
 
     });
 
     function submitSurvey(javascript, c, cSharp, java, ruby,
         php, swift, cPlusPlus, r, perl, assembly, html, css,
-        python, objectiveC) {
-        $.post("/api/members/:id/languages", {
-
+        python, objectiveC, member_id) {
+        $.post("/api/members/languages", {
             javascript: javascript,
             cPlusPlus: cPlusPlus,
             c: c,
@@ -66,9 +66,10 @@ $(document).ready(function () {
             css: css,
             python: python,
             objectiveC: objectiveC,
+            member_id: member_id
         })
             .then(function () {
-                window.location.replace("/memberprofile")
+                window.location.replace("/memprof")
             })
             .catch(function (err) {
                 console.log(err)
