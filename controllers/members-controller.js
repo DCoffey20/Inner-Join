@@ -40,7 +40,7 @@ memberRouter.post("/api/members", function (req, res) {
     user_name: req.body.user_name,
     email: req.body.email,
     gender: req.body.gender,
-    gender_orientation: req.body.gender_preference,
+    gender_orientation: req.body.gender_orientation,
     about_me: req.body.about_me,
     password: req.body.password
   }).then(function() {
