@@ -26,7 +26,7 @@ const awaitErorrHandlerFactory = middleware => {
 
 //Probably needs to be moved to login controller
 memberRouter.post("/api/login", passport.authenticate("local"), function (req, res) {
-  res.json(req.members);
+  res.json(req.user);
 });
 
 memberRouter.get("/api/members/:id", function (req, res) {
@@ -70,7 +70,7 @@ memberRouter.put("/api/members/:id", function (req, res) {
     user_name: req.body.userName,
     email: req.body.email,
     gender: req.body.gender,
-    gender_orientation: req.body.gender_preference,
+    gender_orientation: req.body.gender_orientation,
     about_me: req.body.about_me,
     password: req.body.password
   }, {
