@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
     <link rel="stylesheet" href="./css/memprof.css" type="text/css">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="../public/js/memprof.js"></script>
+    <script src="js/memprof.js"></script>
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script> 
     <title>Document</title>
 </head>
 <body>
@@ -23,13 +24,13 @@
 
             </div>
             <div>
-            <button class="navbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-gold-500 rounded vyj">
+            <button  class="navbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-gold-500 rounded vyj">
             View Your Joins
             </button>
-            <button class="navbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded logout">
+            <button  class="navbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded logout">
                     Logout
             </button>
-            <button class="navbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded delete">
+            <button  class="navbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded delete">
                     Delete Account
             </button>
             </div>
@@ -45,16 +46,15 @@
                         <div class = "w-1/2">
                   <div class="font-bold text-xl mb-2">Picture(s)</div>
                         </div>
-                        <div class = "w-1/2">
-                        <button id = "picbtn" class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded">
-                                    Upload
-                        </button>
+                        <div class="w-1/2">
+                            <button id="upload_widget"
+                                class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded cloudinary-button">
+                                Upload
+                            </button>
                         </div>
                 </div>
                 </div>
-                <div class="px-6 py-4">
-                    <input placeholder = "Upload your files here" class = "input" id = "picupload"></input>
-                </div>
+                
                 <div class="px-6 py-4">
 
                     </div>
