@@ -157,17 +157,21 @@ $(document).ready(function () {
         if (!error && result && result.event === "success") {
             console.log('Done! Here is the image info: ', result.info);
         }
+        return result.info;
     }
     )
 
-    setTimeout(function (){
         console.log("upload widget", uploadWidget);
         uploadWidget.on("click", function () {
             console.log("HI");
             myWidget.open();
+        }).then(function(result){
+            $.post("api/members/:id/profilepictures"){
+                let newProfilePicture = {
+                    url: result.info.url
+                }
+            }
         });
-
-    }, 3000);
 
 
 });
