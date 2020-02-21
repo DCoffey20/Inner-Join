@@ -182,9 +182,11 @@ $(document).ready(function () {
             
         });
 
-
+        logoutUser.on("click", function (event) {
+            event.preventDefault();
+            window.location.replace("/login");
+        });
 });
-
 
 
 
