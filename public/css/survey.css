@@ -6,7 +6,7 @@ body {
 
 .scard{
     height: 600px;
-    width: 900px;
+    width: 600px;
     /* background-color: grey; */
     background-image: url("331075.png");
     justify-content: center;
@@ -16,7 +16,10 @@ body {
 }
 
 #surverysubmit{
+    background-image: url("Glowingbluebutton.png");
 
-    margin-left: 150px;
+    max-height: 100px;
     margin-top: 150px;
+    margin-left: 250px;
+    width: 100px;
 }
