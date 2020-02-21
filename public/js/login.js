@@ -21,15 +21,15 @@ $(document).ready(function() {
   });
 
   function loginUser(email, password) {
+    console.log("test");
     $.post("/api/login", {
       email: email,
       password: password
     })
       .then(function() {
-        window.location.replace("/members");
-      })
-      .catch(function(err) {
-        console.log(err);
+        console.log("test");
+        window.location.replace("/memberprofile");
+        // If there's an error, log the error
       });
   }
 });
