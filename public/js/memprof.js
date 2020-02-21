@@ -7,6 +7,7 @@ $(document).ready(function () {
     const aboutInput = $("#aboutinput");
     const aboutsubmit = $("#aboutsubmit");
     const joininfo = $("#editjoininfo");
+    const logoutUser = $("#logoutuser");
 
     const javascript = $("#JSedit");
     const cPlusPlus = $("#C++edit");
@@ -181,9 +182,11 @@ $(document).ready(function () {
             
         });
 
-
+        logoutUser.on("click", function (event) {
+            event.preventDefault();
+            window.location.replace("/login");
+        });
 });
-
 
 
 
