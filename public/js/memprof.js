@@ -37,9 +37,9 @@ $(document).ready(function () {
         perl.checkbox(data.perl);
         assembly.checkbox(data.assembly);
         objectiveC.checkbox(data.objectiveC);
-        // html.checkbox(data.html);
-        // css.checkbox(data.css);
-        // python.checkbox(data.python);
+        html.checkbox(data.html);
+        css.checkbox(data.css);
+        python.checkbox(data.python);
         firstnameinput.val(data.first_name);
 
     });
@@ -172,7 +172,7 @@ $(document).ready(function () {
                 url: result.info.url,
                 member_id: req.user.id
             }
-            $.post("api/members/:id/profilepictures", {
+            $.post("api/members/profilepictures", {
                 url: newProfilePicture.url,
                 member_id: newProfilePicture.member_id
             }).catch(function (err) {

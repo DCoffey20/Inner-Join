@@ -13,22 +13,22 @@ const awaitErorrHandlerFactory = middleware => {
     };
 };
 
-picturesRouter.post("/api/members/:id/profilePictures", function (req, res) {
+picturesRouter.post("/api/members/profilePictures", function (req, res) {
 
     db.profilePictures.create({
         url: response.url,
-        member_id: req.params.id
+        member_id: req.user.id
     }).then(function (results) {
         res.json(results);
     });
 });
 
 picturesRouter.get(
-    "/api/members/:id/profilePictures",
+    "/api/members/profilePictures",
      db.profilePictures.findAll({
         raw: true,
         where: {
-          member_id: req.params.id
+          member_id: req.user.id
         },
      })
 
