@@ -26,7 +26,7 @@
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
                 <h1 class="h1">Welcome to Inner Join!</h1>
-                <h2>Signup</h2>
+                <h2 class = "h2">Signup</h2>
                 <form class="signup">
                   <div class="form-group">
                     <label for="exampleFirstName1">First Name</label>
@@ -48,27 +48,36 @@
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" class="form-control" id="password-input" placeholder="Password">
                   </div>
-                  <div class="form-group">
-                    Gender<br>
-                    <form action="">
-                      <input type="radio" id="male-1" name="gender" value=1> Male<br>
-                      <input type="radio" id="female-1" name="gender" value=2> Female<br>
-                      <input type="radio" id="other-1" name="gender" value=3> Other
-                    </form>
+                  <div class = "flex">
+                    <div class = "w-1/2">
+                      <div class="form-group">
+                          Gender<br>
+                          <form action="">
+                            <input type="radio" id="male-1" name="gender" value=1> Male<br>
+                            <input type="radio" id="female-1" name="gender" value=2> Female<br>
+                            <input type="radio" id="other-1" name="gender" value=3> Other
+                          </form>
+                        </div>
+                    </div>
+                    <div class = "w-1/2">
+                      <div class="form-group">
+                          Preferred Gender<br>
+                          <form action="">
+                            <input type="radio" id="male-2" name="gender" value=1> Male<br>
+                            <input type="radio" id="female-2" name="gender" value=2> Female<br>
+                            <input type="radio" id="other-2" name="gender" value=3> Other
+                          </form>
+                        </div>
+                    </div>
                   </div>
-                  <div class="form-group">
-                    Preferred Gender<br>
-                    <form action="">
-                      <input type="radio" id="male-2" name="gender" value=1> Male<br>
-                      <input type="radio" id="female-2" name="gender" value=2> Female<br>
-                      <input type="radio" id="other-2" name="gender" value=3> Other
-                    </form>
-                  </div>
+                  
+
+
                   <div class="form-group">
                     <label for="exampleAboutMe1">About Me</label>
                     <input type="text" class="form-control" id="about-me-input" placeholder="About Me">
                   </div>
-                  <button type="submit" class="btn btn-default" id="submit">Sign Up</button>
+                  <button type="submit" class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded" id="submit">Sign Up</button>
                 </form>
                 <br />
                 <p>Or Log In <a href="login.html">here</a></p>

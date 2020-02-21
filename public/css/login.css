@@ -1,10 +1,23 @@
 body {
 
-    background-image:url("Binary-Background.png");
+    background-image:url("913717.jpg");
 
 }
 
 .logincard{
-    background-color: grey;
+    background-image: url("331075.png");
+    color: white;
     margin-top: 200px;
+}
+
+.submitbutton{
+    background-image: url("Glowingbluebutton.png");
+}
+
+.h1{
+    color:white;
+}
+
+.h2{
+    color:white;
 }
