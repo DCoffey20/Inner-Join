@@ -16,7 +16,7 @@ const awaitErorrHandlerFactory = middleware => {
 languageRouter.post("/api/members/:id/languages", function (req, res) {
   console.log(`${JSON.stringify(req.body)} from put request`)
   db.Languages.create({
-    member_id: req.user.id,
+    member_id: req.param.id,
     javascript: req.body.javascript,
     c: req.body.c,
     csharp: req.body.csharp,
@@ -41,6 +41,7 @@ languageRouter.put("/api/members/:id/languages", function (req, res) {
   console.log("put request" + req.params.id);
   console.log(`${JSON.stringify(req.body)} from put request`)
   db.Languages.update({
+
     javascript: req.body.javascript,
     c: req.body.c,
     csharp: req.body.csharp,
@@ -58,7 +59,7 @@ languageRouter.put("/api/members/:id/languages", function (req, res) {
     objectiveC: req.body.objectiveC,
   }, {
       where: {
-        member_id: req.user.id
+        member_id: req.params.id
       }
     }
   ).then(result => {
@@ -69,6 +70,18 @@ languageRouter.put("/api/members/:id/languages", function (req, res) {
     } else {
       res.status(200).end();
     }
+  });
+});
+
+
+languageRouter.get("/api/members/:id/languages", function (req, res) {
+  db.Languages.findOne({
+    raw: true,
+    where: {
+      member_id: req.params.id
+    }
+  }).then(function (res) {
+    res.json(res);
   });
 });
 

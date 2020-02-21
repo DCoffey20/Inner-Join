@@ -35,12 +35,12 @@ memberRouter.get("/api/members/:id", function (req, res) {
 memberRouter.post("/api/members", function (req, res) {
 
   db.Members.create({
-    first_name: req.body.firstName,
-    last_name: req.body.lastName,
-    user_name: req.body.userName,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    user_name: req.body.user_name,
     email: req.body.email,
     gender: req.body.gender,
-    gender_orientation: req.body.genderPref,
+    gender_orientation: req.body.gender_preference,
     about_me: req.body.about_me,
     password: req.body.password
   }).then(function() {
@@ -58,9 +58,9 @@ memberRouter.put("/api/members/:id", function (req, res) {
     first_name: req.body.firstName,
     last_name: req.body.lastName,
     user_name: req.body.userName,
-    gender: req.body.gender,
     email: req.body.email,
-    gender_orientation: req.body.genderPref,
+    gender: req.body.gender,
+    gender_orientation: req.body.gender_preference,
     about_me: req.body.about_me,
     password: req.body.password
   }, {
@@ -104,14 +104,17 @@ memberRouter.get(
       }
     });
 
+    
     userJoinsPool.map((element) => {
-      return element.married = false;
+      return element.joinScore = 0;
    });
 
-    let sortedJoins = await function(currentUser, userJoins){
-      let joinScore = 0;
-      array.forEach(userJoins => {
-        
+    let sortedJoins = await function(currentUser, userJoinsPool){
+      
+      array.forEach(element => {
+        // if currentUser.languages.X === userJoinsPool[i].languages.X{
+        //  joinScore++
+        // }
       });
     };
 

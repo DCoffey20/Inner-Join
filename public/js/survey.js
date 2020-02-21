@@ -48,8 +48,8 @@ $(document).ready(function () {
 
     function submitSurvey(javascript, c, cSharp, java, ruby,
         php, swift, cPlusPlus, r, perl, assembly, html, css,
-        python, objectiveC, gender, gender_orientation) {
-        $.post("/api/members/languages", {
+        python, objectiveC) {
+        $.post("/api/members/:id/languages", {
 
             javascript: javascript,
             cPlusPlus: cPlusPlus,
@@ -66,8 +66,6 @@ $(document).ready(function () {
             css: css,
             python: python,
             objectiveC: objectiveC,
-            gender: gender,
-            gender_orientation: gender_orientation,
         })
             .then(function () {
                 window.location.replace("/memberprofile")

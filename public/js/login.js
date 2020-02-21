@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   loginForm.on("submit", function(event) {
     event.preventDefault();
-    var userData = {
+    let userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
