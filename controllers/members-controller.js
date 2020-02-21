@@ -183,7 +183,12 @@ memberRouter.get(
 
 );
 
-memberRouter.delete("/api/members/:id", function (req, res) {
+memberRouter.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/");
+});
+
+memberRouter.delete("/api/members", function (req, res) {
   
   db.Members.destroy({
       where: {
