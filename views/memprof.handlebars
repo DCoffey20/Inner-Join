@@ -40,27 +40,25 @@
 <div class="flex">
     <div class="w-1/2  h-12 pics">
         <div class="max-w-sm rounded overflow-hidden shadow-lg pcard">
-
-            <div class="px-6 py-4">
-                <div class="flex">
-                    <div class="w-1/2">
-                        <div class="font-bold text-xl mb-2">Picture(s)</div>
-                    </div>
-                    <div class="w-1/2">
-                        <button
-                            class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded">
-                            Upload
-                        </button>
-                    </div>
+                
+                <div class="px-6 py-4">
+                    <div class = "flex">
+                        <div class = "w-1/2">
+                  <div class="font-bold text-xl mb-2">Picture(s)</div>
+                        </div>
+                        <div class="w-1/2">
+                            <button id="upload_widget"
+                                class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded cloudinary-button">
+                                Upload
+                            </button>
+                        </div>
                 </div>
-            </div>
-            <div class="px-6 py-4">
-                <input placeholder="Upload your files here" class="input" id="picupload"></input>
-            </div>
-            <div class="px-6 py-4">
+                </div>
+                
+                <div class="px-6 py-4">
 
-            </div>
-        </div>
+                    </div>
+              </div>
     </div>
     <div class="w-1/2  h-12 un">
         <div class="max-w-sm rounded overflow-hidden shadow-lg namecard">
@@ -79,10 +77,10 @@
                 </div>
             </div>
             <div class="px-6 py-4">
-                <input placeholder="First Name" class="input" id="fninput">{{member.first_name}}</input>
+                <input placeholder="First Name" class="input" id="fninput">{{first_name}}</input>
             </div>
             <div class="px-6 py-4">
-                <input placeholder="Last Name" class="input" id="lninput">{{member.last_name}}</input>
+                <input placeholder="Last Name" class="input" id="lninput">{{last_name}}</input>
             </div>
 
         </div>
