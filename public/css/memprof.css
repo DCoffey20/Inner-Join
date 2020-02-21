@@ -1,9 +1,11 @@
 body {
 
-    background-image:url("Binary-Background.png") ; 
+    background-image:url("913717.jpg"); 
 
 }
-
+input{
+    color: black;
+}
 .pics{
 
     margin-top: 50px;
@@ -28,20 +30,27 @@ body {
     margin-top: 16.666px;
     margin-left: 300px;
 }
+
+.submitbutton{
+    background-image: url("Glowingbluebutton.png");
+}
 .pcard{
     height: 150px;
     width: 300px;
-    background-color: grey;
+    background-image: url("331075.png");
+    color: white;
 }
 .nameinput{}
 .namecard{
     height: 150px;
-    background-color: grey;
+    background-image: url("331075.png");
+    color: white;
 }
 .row2card{
     height: 300px; 
     width: 400px; 
-    background-color: grey; 
+    background-image: url("331075.png");
+    color: white; 
 
     
 }
@@ -50,7 +59,7 @@ width: 370px;
 height: 220px;  
 }
 .input{
-  width: 200px;  
+  width: 208px;  
 }
 .vyj{
    margin-right: 10px; 
@@ -61,9 +70,35 @@ height: 220px;
 .navigation{
 border-style: inset;
 border-color: grey;
-background-color: rgb(7, 7, 7);
+background-image: url("331075.png");
+color: white;
+}
+.logo{
+    background-image: url("Logo.png");
+    width: 40px;
+    height: 40px;
 }
 .navbutton{
-    background-color: grey;
+    /* background-color: grey; */
+    background-image: url("Glowingbluebutton.png");
+}
+#picbtn{
+    margin-left: 40px;
+}
+
+#namebtn{
+    margin-left: 15px;
+}
+
+#aboutbtn{
+    margin-left: 115px;
+}
+
+#langbtn{
+    margin-left: 115px;
+}
+
+#messagebtn{
+    margin-left: 65px;
 }
 .delete{}
