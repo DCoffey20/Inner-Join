@@ -58,7 +58,7 @@ $(document).ready(function () {
       gender_orientation: gender_orientation
     })
       .then(function (data) {
-        window.location.replace("/survey");
+        window.location.replace("/survey/");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
