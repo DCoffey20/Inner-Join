@@ -1,28 +1,45 @@
 $(document).ready(function () {
 
-    const submitSurvey = $("#surveysubmit");
+    const submitlang = $("#surveysubmit");
 
-    const javascript = $("#JS");
-    const cPlusPlus = $("#C++");
-    const c = $("#c");
-    const cSharp = $("#csharp");
-    const swift = $("#swift");
-    const java = $("#Java");
-    const ruby = $("#Ruby");
-    const php = $("#PHP");
-    const perl = $("#Perl");
-    const assembly = $("#Assembly");
-    const html = $("#HTML");
-    const css = $("#CSS");
-    const python = $("#Python");
-    const objectiveC = $("#Objectivec");
-    const r = $("#R");
+    let javascript = ''
+    let cPlusPlus = ''
+    let c = ''
+    let cSharp = ''
+    let swift = ''
+    let java = ''
+    let ruby = ''
+    let php = ''
+    let perl = ''
+    let assembly = ''
+    let html = ''
+    let css = ''
+    let python = ''
+    let objectiveC = ''
+    let r = ''
+    
 
-    submitSurvey.on("click", function (event) {
-        console.log("HELLO");
+    submitlang.on("click", function (event) {
+        // console.log("HELLO");
         event.preventDefault();
+        javascript = $("input[id=JS]:checked");
+        cPlusPlus = $("input[id=C++]:checked")
+        c = $("input[id=c]:checked")
+        cSharp = $("input[id=csharp]:checked")
+        swift = $("input[id=Swift]:checked")
+        java = $("input[id=Java]:checked")
+        ruby = $("input[id=Ruby]:checked")
+        php = $("input[id=PHP]:checked")
+        perl = $("input[id=Perl]:checked")
+        assembly = $("input[id=Assembly]:checked")
+        html = $("input[id=HTML]:checked")
+        css = $("input[id=CSS]:checked")
+        python = $("input[id=Python]:checked")
+        objectiveC = $("input[id=Objectivec]:checked")
+        r = $("input[id=R]:checked")
+        
         let userData = {
-            member_id: req.user.id,
+            member_id: [...window.location.split('/')].pop(),
             javascript: javascript.val(),
             cPlusPlus: cPlusPlus.val(),
             c: c.val(),
