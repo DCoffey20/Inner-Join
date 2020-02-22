@@ -19,9 +19,10 @@ $(document).ready(function () {
     const r = $("#R");
 
     submitSurvey.on("click", function (event) {
-
+        console.log("HELLO");
         event.preventDefault();
         let userData = {
+            member_id: req.user.id,
             javascript: javascript.val(),
             cPlusPlus: cPlusPlus.val(),
             c: c.val(),
@@ -37,20 +38,20 @@ $(document).ready(function () {
             css: css.val(),
             python: python.val(),
             objectiveC: objectiveC.val(),
-            member_id: req.user.id
         }
 
-        submitSurvey(userData.javascript, userData.c, userData.cSharp,
+        submitSurvey(userData.member_id, userData.javascript, userData.c, userData.cSharp,
             userData.java, userData.ruby, userData.php, userData.swift,
             userData.cPlusPlus, userData.r, userData.perl, userData.assembly,
-            userData.html, userData.css, userData.python, userData.objectiveC, userData.member_id);
+            userData.html, userData.css, userData.python, userData.objectiveC);
 
     });
 
-    function submitSurvey(javascript, c, cSharp, java, ruby,
+    function submitSurvey(member_id, javascript, c, cSharp, java, ruby,
         php, swift, cPlusPlus, r, perl, assembly, html, css,
-        python, objectiveC, member_id) {
+        python, objectiveC) {
         $.post("/api/members/languages", {
+            member_id: member_id,
             javascript: javascript,
             cPlusPlus: cPlusPlus,
             c: c,
@@ -65,11 +66,10 @@ $(document).ready(function () {
             html: html,
             css: css,
             python: python,
-            objectiveC: objectiveC,
-            member_id: member_id
+            objectiveC: objectiveC
         })
             .then(function () {
-                window.location.replace("/memprof")
+                window.location.replace("/memberprofile")
             })
             .catch(function (err) {
                 console.log(err)

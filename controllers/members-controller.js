@@ -29,19 +29,6 @@ memberRouter.post("/api/login", passport.authenticate("local"), function (req, r
   res.json(req.user);
 });
 
-memberRouter.get("/api/members", function (req, res) {
-  db.Members.findOne({
-    raw: true,
-    where: {
-      id: req.user.id
-    }
-  }).then(function (data) {
-    console.log(data);
-    let hbsMember = data;
-    res.render("memprof", hbsMember);
-  });
-});
-
 memberRouter.post("/api/members", function (req, res) {
 
   db.Members.create({
@@ -60,6 +47,21 @@ memberRouter.post("/api/members", function (req, res) {
     res.status(401).json(err);
   });
 });
+memberRouter.get("/api/members", function (req, res) {
+  db.Members.findOne({
+    raw: true,
+    where: {
+      id: req.user.id
+    }
+  }).then(function (data) {
+    console.log(data);
+    return res.json({
+      error: false,
+      data: [data]
+    });
+  });
+});
+
 
 memberRouter.put("/api/members", function (req, res) {
   console.log("put request" + req.user.id);
