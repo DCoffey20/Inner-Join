@@ -30,6 +30,9 @@ $(document).ready(function () {
     $.get("/api/members").then(function (data) {
         console.log(data);
         console.log(data.data[0].first_name);
+        firstnameinput.attr("placeholder", data.data[0].first_name);
+        lastnameinput.attr("placeholder", data.data[0].last_name);
+        aboutInput.attr("placeholder", data.data[0].about_me);
         // javascript.checkbox(data.javascript);
         // cPlusPlus.checkbox(data.cPlusPlus);
         // c.checkbox(data.c);
