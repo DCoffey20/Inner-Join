@@ -30,9 +30,11 @@ require("./routes/login-routes")(app);
 const memberRouter = require("./controllers/members-controller.js");
 const languageRouter = require("./controllers/memberlanguages-controller");
 const messagesRouter = require("./controllers/messages-controller.js")
+const picturesRouter = require("./controllers/profilepics-controller.js");
 app.use(memberRouter);
 app.use(languageRouter);
 app.use(messagesRouter);
+app.use(picturesRouter);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {

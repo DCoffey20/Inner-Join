@@ -1,7 +1,7 @@
 const db = require("../models");
 const express = require("express");
 
-const picfturesRouter = express.Router();
+const picturesRouter = express.Router();
 
 const awaitErorrHandlerFactory = middleware => {
     return async (req, res, next) => {
@@ -15,7 +15,7 @@ const awaitErorrHandlerFactory = middleware => {
 
 picturesRouter.post("/api/members/profilePictures", function (req, res) {
 
-    db.profilePictures.create({
+    db.profilePics.create({
         url: response.url,
         member_id: req.user.id
     }).then(function (results) {
@@ -24,14 +24,21 @@ picturesRouter.post("/api/members/profilePictures", function (req, res) {
 });
 
 picturesRouter.get(
-    "/api/members/profilePictures",
-     db.profilePictures.findAll({
-        raw: true,
-        where: {
-          member_id: req.user.id
-        },
-     })
-
+    "/api/members/profilePics",
+     awaitErorrHandlerFactory(async (req, res, next) => {
+        let userPictures = await db.profilePics.findAll({
+            raw: true,
+            // offset: 0,
+            // limit: 20,
+            where: {
+                member_id: req.user.id
+            }
+        });
+        return res.json({
+            error: false,
+            data: [userPictures]
+        });
+    })
 );
 
 module.exports = picturesRouter;
