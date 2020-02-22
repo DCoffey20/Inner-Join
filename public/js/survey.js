@@ -2,25 +2,44 @@ $(document).ready(function () {
 
     const submitSurvey = $("#surveysubmit");
 
-    const javascript = $("#JS");
-    const cPlusPlus = $("#C++");
-    const c = $("#c");
-    const cSharp = $("#csharp");
-    const swift = $("#swift");
-    const java = $("#Java");
-    const ruby = $("#Ruby");
-    const php = $("#PHP");
-    const perl = $("#Perl");
-    const assembly = $("#Assembly");
-    const html = $("#HTML");
-    const css = $("#CSS");
-    const python = $("#Python");
-    const objectiveC = $("#Objectivec");
-    const r = $("#R");
+    const javascript ='';
+    const cPlusPlus = '';
+    const c = '';
+    const cSharp = '';
+    const swift = '';
+    const java = '';
+    const ruby = '';
+    const php = '';
+    const perl = '';
+    const assembly = '';
+    const html = '';
+    const css = '';
+    const python = '';
+    const objectiveC = '';
+    const r = '';
 
     submitSurvey.on("click", function (event) {
 
         event.preventDefault();
+
+        javascript = $("input[name=JS]:checked");
+        cPlusPlus = $("input[name=C++]:checked");
+        c = $("input[name=c]:checked");
+        cSharp = $("input[name=csharp]:checked");
+        swift = $("input[name=swift]:checked");
+        java = $("input[name=Java]:checked");
+        ruby = $("input[name=Ruby]:checked");
+        php = $("input[name=PHP]:checked");
+        perl = $("input[name=Perl]:checked");
+        assembly = $("input[name=Assembly]:checked");
+        html = $("input[name=HTML]:checked");
+        css = $("input[name=CSS]:checked");
+        python = $("input[name=Python]:checked");
+        objectiveC = $("input[name=Objectivec]:checked");
+        r = $("input[name=R]:checked");
+
+        console.log(html);
+
         let userData = {
             javascript: javascript.val(),
             cPlusPlus: cPlusPlus.val(),
