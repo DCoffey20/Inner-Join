@@ -91,14 +91,14 @@ memberRouter.put("/api/members", function (req, res) {
 });
 
 memberRouter.get(
-  "/api/members/matches",
+  "/api/members/:id/matches",
 
   awaitErorrHandlerFactory(async (req, res, next) => {
 
     let currentUser = await db.Members.findOne({
       raw: true,
       where: {
-        id: req.user.id
+        id: req.params.id
       },
       include: {
         model: db.Languages
