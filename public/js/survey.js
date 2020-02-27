@@ -2,44 +2,44 @@ $(document).ready(function () {
 
     const submitlang = $("#surveysubmit");
 
-    let javascript = ''
-    let cPlusPlus = ''
-    let c = ''
-    let cSharp = ''
-    let swift = ''
-    let java = ''
-    let ruby = ''
-    let php = ''
-    let perl = ''
-    let assembly = ''
-    let html = ''
-    let css = ''
-    let python = ''
-    let objectiveC = ''
-    let r = ''
+    let javascript = '';
+    let cPlusPlus = '';
+    let c = '';
+    let cSharp = '';
+    let swift = '';
+    let java = '';
+    let ruby = '';
+    let php = '';
+    let perl = '';
+    let assembly = '';
+    let html = '';
+    let css = '';
+    let python = '';
+    let objectiveC = '';
+    let r = '';
     
 
     submitlang.on("click", function (event) {
         // console.log("HELLO");
         event.preventDefault();
         javascript = $("input[id=JS]:checked");
-        cPlusPlus = $("input[id=C++]:checked")
-        c = $("input[id=c]:checked")
-        cSharp = $("input[id=csharp]:checked")
-        swift = $("input[id=Swift]:checked")
-        java = $("input[id=Java]:checked")
-        ruby = $("input[id=Ruby]:checked")
-        php = $("input[id=PHP]:checked")
-        perl = $("input[id=Perl]:checked")
-        assembly = $("input[id=Assembly]:checked")
-        html = $("input[id=HTML]:checked")
-        css = $("input[id=CSS]:checked")
-        python = $("input[id=Python]:checked")
-        objectiveC = $("input[id=Objectivec]:checked")
-        r = $("input[id=R]:checked")
+        cPlusPlus = $("input[id=C++]:checked");
+        c = $("input[id=c]:checked");
+        cSharp = $("input[id=csharp]:checked");
+        swift = $("input[id=Swift]:checked");
+        java = $("input[id=Java]:checked");
+        ruby = $("input[id=Ruby]:checked");
+        php = $("input[id=PHP]:checked");
+        perl = $("input[id=Perl]:checked");
+        assembly = $("input[id=Assembly]:checked");
+        html = $("input[id=HTML]:checked");
+        css = $("input[id=CSS]:checked");
+        python = $("input[id=Python]:checked");
+        objectiveC = $("input[id=Objectivec]:checked");
+        r = $("input[id=R]:checked");
         
-        let userData = {
-            member_id: [...window.location.split('/')].pop(),
+        let userSurveyData = {
+            member_id: req.user.id,
             javascript: javascript.val(),
             cPlusPlus: cPlusPlus.val(),
             c: c.val(),
@@ -57,10 +57,10 @@ $(document).ready(function () {
             objectiveC: objectiveC.val(),
         }
 
-        submitSurvey(userData.member_id, userData.javascript, userData.c, userData.cSharp,
-            userData.java, userData.ruby, userData.php, userData.swift,
-            userData.cPlusPlus, userData.r, userData.perl, userData.assembly,
-            userData.html, userData.css, userData.python, userData.objectiveC);
+        submitSurvey(userSurveyData.member_id, userSurveyData.javascript, userSurveyData.c, userSurveyData.cSharp,
+            userSurveyData.java, userSurveyData.ruby, userSurveyData.php, userSurveyData.swift,
+            userSurveyData.cPlusPlus, userSurveyData.r, userSurveyData.perl, userSurveyData.assembly,
+            userSurveyData.html, userSurveyData.css, userSurveyData.python, userSurveyData.objectiveC);
 
     });
 
