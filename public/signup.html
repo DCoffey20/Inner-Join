@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="./css/signup.css" type="text/css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="./js/login.js"></script>
-  <script src="./js/memprof.js"></script>
+  <!-- <script src="./js/memprof.js"></script> -->
   <script src="./js/signup.js"></script>
-  <script src="./js/viewjoins.js"></script>
+  <!-- <script src="./js/viewjoins.js"></script> -->
+  <!-- <script src="../public/js/survey.js"></script> -->
 </head>
 
 <body>
@@ -26,7 +27,7 @@
             <div class="row">
               <div class="col-md-6 col-md-offset-3">
                 <h1 class="h1">Welcome to Inner Join!</h1>
-                <h2 class = "h2">Signup</h2>
+                <h2 class="h2">Signup</h2>
                 <form class="signup">
                   <div class="form-group">
                     <label for="exampleFirstName1">First Name</label>
@@ -66,14 +67,47 @@
                     </form>
 
                   </div>
-                  
-
 
                   <div class="form-group">
                     <label for="exampleAboutMe1">About Me</label>
                     <input type="text" class="form-control" id="about-me-input" placeholder="About Me">
                   </div>
-                  <button type="submit" class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded" id="submit">Sign Up</button>
+
+                  <div class="labels">
+                    <label for="loc">What languages do you know? Select all that apply. (Note: your joins, or matches,
+                      will be generated based on how well their answers match yours.)</label>
+                  </div>
+
+                  <div class="inputs">
+                    <div class="flex">
+                      <div class="w-1/2">
+
+                        <input id="JS" type="checkbox" name="loc" value="1">JavaScript<br>
+                        <input id="CPlusPlus" type="checkbox" name="loc" value="1">C++<br>
+                        <input id="c" type="checkbox" name="loc" value="1">C<br>
+                        <input id="csharp" type="checkbox" name="loc" value="1">C#<br>
+                        <input id="Python" type="checkbox" name="loc" value="1">Python<br>
+                        <input id="Swift" type="checkbox" name="loc" value="1">Swift<br>
+                        <input id="R" type="checkbox" name="loc" value="1">R<br>
+                        <input id="Java" type="checkbox" name="loc" value="1">Java<br>
+                        <input id="Ruby" type="checkbox" name="loc" value="1">Ruby<br>
+                        <input id="PHP" type="checkbox" name="loc" value="1">PHP<br>
+                        <input id="Perl" type="checkbox" name="loc" value="1">Perl<br>
+                        <input id="Assembly" type="checkbox" name="loc" value="1">Assembly<br>
+                        <input id="Objectivec" type="checkbox" name="loc" value="1">Objectivec<br>
+                        <input id="HTML" type="checkbox" name="loc" value="1">HTML<br>
+                        <input id="CSS" type="checkbox" name="loc" value="1">CSS<br>
+                        
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <button type="submit"
+                    class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded"
+                    id="submit">Sign Up
+                  </button>
                 </form>
                 <br />
                 <p>Or Log In <a href="login.html">here</a></p>

@@ -16,7 +16,7 @@ const awaitErorrHandlerFactory = middleware => {
 languageRouter.post("/api/members/languages", function (req, res) {
   console.log(`${JSON.stringify(req.body)} from put request`)
   db.Languages.create({
-    member_id: req.user.id,
+    member_id: req.body.member_id,
     javascript: req.body.javascript,
     c: req.body.c,
     csharp: req.body.csharp,
