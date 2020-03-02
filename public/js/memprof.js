@@ -12,7 +12,7 @@ $(document).ready(function () {
     let viewJoins = $(".vyj");
 
     const javascript = $("#JSedit");
-    const cPlusPlus = $("#C++edit");
+    const cPlusPlus = $("#CPlusPlusedit");
     const c = $("#cedit");
     const cSharp = $("#csharpedit");
     const swift = $("#Swiftedit");
@@ -157,30 +157,29 @@ $(document).ready(function () {
             });
     });
 
-
+    console.log('CLOUDINARYYYyyyyyyy');
     const myWidget = cloudinary.createUploadWidget({
         cloudName: 'innerjoindb',
         uploadPreset: 'sample'
     }, (error, result) => {
         if (!error && result && result.event === "success") {
             console.log('Done! Here is the image info: ', result.info);
+            let newProfilePicture = {
+                url: result.info.url,
+            }
+            $.post("api/members/profilePictures", {
+                url: newProfilePicture.url
+            }).fail(function (err) {
+                console.log(err);
+                });
         }
-        let newProfilePicture = {
-            url: result.info.url,
-            member_id: req.user.id
-        }
-        $.post("api/members/profilepictures", {
-            url: newProfilePicture.url,
-            member_id: newProfilePicture.member_id
-        }).catch(function (err) {
-            console.log(err);
-            });
     }
     )
 
         console.log("upload widget", uploadWidget);
-        uploadWidget.on("click", function () {
+        uploadWidget.on("click", function (event) {
             console.log("HI");
+            event.preventDefault();
             myWidget.open();
         });
 

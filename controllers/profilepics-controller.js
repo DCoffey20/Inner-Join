@@ -14,9 +14,12 @@ const awaitErorrHandlerFactory = middleware => {
 };
 
 picturesRouter.post("/api/members/profilePictures", function (req, res) {
-
+    if(!req.body.url){
+        res.status(400);
+        res.json("Error: URL is required");
+    }
     db.profilePics.create({
-        url: response.url,
+        url: req.body.url,
         member_id: req.user.id
     }).then(function (results) {
         res.json(results);
