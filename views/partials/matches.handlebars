@@ -4,7 +4,7 @@
             xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
-            </svg>
+        </svg>
         <span class="font-semibold text-xl tracking-tight">Inner-Join</span>
     </div>
     <div class="block lg:hidden">
@@ -21,17 +21,16 @@
 
         </div>
         <div>
-
             <button
-                class="navbutton hover:bg-yellow-400 text-white font-bold py-2 px-4 border-b-4  hover:border-gold-500 rounded vyj">
-                View Your Joins
+                class="navbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-gold-500 rounded profile">
+                Member Profile
             </button>
             <button
                 class="navbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded logout">
                 Logout
             </button>
             <button
-                class="navbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded delete">
+                class="navbutton hover:bg-b lue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded delete">
                 Delete Account
             </button>
         </div>
@@ -48,34 +47,37 @@
 
                     </div>
                     <div class="w-1/2">
-                        <button
-                            class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded">
-                            View Next Join
-                        </button>
-                        <button
-                            class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded">
-                            Interested?
-                        </button>
+                        <div class="buttonpositioner">
+                            <button
+                                class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded">
+                                View Next Join
+                            </button>
+                            <button
+                                class="submitbutton hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4  hover:border-blue-500 rounded">
+                                Interested?
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            
             <div class="px-6 py-4">
                 <img class="joinpic" href="">
 
                 </img>
-                <div class="name">{{member.first_name}} {{member.last_lame}}</div>
+                <div class="name">Their name</div>
+                <div class="email">Email</div>
 
             </div>
             <div class="px-6 py-4">
-                <div class="about"> {{member.about_me}}
+                <div class="about"> Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nobis, voluptatibus consectetur? Assumenda maiores ipsa quod amet,
+                    necessitatibus voluptates blanditiis placeat asperiores iusto. At
+                    placeat laborum sit maiores quibusdam veniam cumque.
 
                 </div>
-                <div class="langs">{{member.languages}}</div>
+                <div class="langs">CSS HTML C++ Javascript etc</div>
                 <div></div>
 
             </div>
         </div>
     </div>
-
-    <script src="../../public/js/viewjoins.js"></script>
