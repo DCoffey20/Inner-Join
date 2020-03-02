@@ -1,15 +1,15 @@
-const db = require("../models");
-const passport = require("../config/passport");
+const db = require("../../models");
+const passport = require("../../config/passport");
 const express = require("express");
 
 const memberRouter = express.Router();
 
-function compare(personA, personB){
+function compare(personA, personB) {
   let comparison = 0;
   if (personA.joinScore > personB.joinScore) {
-    comparison = 1;
-  } else if (personA.joinScore < personA.joinScore) {
     comparison = -1;
+  } else if (personA.joinScore < personB.joinScore) {
+    comparison = 1;
   }
   return comparison;
 }
@@ -48,6 +48,7 @@ memberRouter.post("/api/members", function (req, res) {
     res.status(401).json(err);
   });
 });
+
 memberRouter.get("/api/members", function (req, res) {
   db.Members.findOne({
     raw: true,
@@ -124,58 +125,58 @@ memberRouter.get(
    
    
       
-      userJoinsPool.forEach(element => {
-        console.log(currentUser);
-        console.log(element);
-        if(currentUser['Languages.javascript'] && element['Languages.javascript']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.c'] && element['Languages.c']){
-          element.joinScore++
-        };
-        if(currentUser['Languages.csharp'] && userJoinsPool['Languages.csharp']) {
-          userJoinsPool.joinScore++
-        };
-        if(currentUser['Languages.java'] && element['Languages.java']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.ruby'] && element['Languages.ruby']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.php'] && element['Languages.php']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.swift'] && element['Languages.swift']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.cPlusPlus'] && element['Languages.cPlusPlus']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.r'] && element['Languages.r']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.perl'] && element['Languages.perl']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.assembly'] && element['Languages.assembly']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.html'] && element['Languages.html']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.css'] && element['Languages.css']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.python'] && element['Languages.python']) {
-          element.joinScore++
-        };
-        if(currentUser['Languages.objectiveC'] && element['Languages.objectiveC']) {
-          element.joinScore++
-        };
-        
-      });
+    userJoinsPool.forEach(element => {
+      console.log(currentUser);
+      console.log(element);
+      if(currentUser['Languages.javascript'] && element['Languages.javascript']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.c'] && element['Languages.c']){
+        element.joinScore++
+      };
+      if(currentUser['Languages.csharp'] && element['Languages.csharp']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.java'] && element['Languages.java']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.ruby'] && element['Languages.ruby']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.php'] && element['Languages.php']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.swift'] && element['Languages.swift']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.cPlusPlus'] && element['Languages.cPlusPlus']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.r'] && element['Languages.r']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.perl'] && element['Languages.perl']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.assembly'] && element['Languages.assembly']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.html'] && element['Languages.html']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.css'] && element['Languages.css']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.python'] && element['Languages.python']) {
+        element.joinScore++
+      };
+      if(currentUser['Languages.objectiveC'] && element['Languages.objectiveC']) {
+        element.joinScore++
+      };
+      
+    });
 
-   userJoinsPool.sort(compare);
+    userJoinsPool = userJoinsPool.sort(compare);
 
     return res.json({
       error: false,
