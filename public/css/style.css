@@ -1,0 +1,142 @@
+body {
+
+    background-image:url("913717.jpg");
+
+}
+
+.logincard{
+    background-image: url("331075.png");
+    color: white;
+    margin-top: 200px;
+}
+
+.h1{
+    color:white;
+}
+
+.h2{
+    color:white;
+}
+
+input{
+    color: black;
+}
+
+.pics{
+
+    margin-top: 50px;
+    margin-left: 350px;
+   
+    height: 150px;
+
+}
+
+.un{
+    margin-top: 50px;
+
+}
+
+.pinfo{
+    margin-left: 70px;
+}
+
+.row2{
+    margin-top: 115px;
+}
+
+.vlbuttons{
+    margin-top: 16.666px;
+    margin-left: 300px;
+}
+
+.submitbutton{
+    background-image: url("Glowingbluebutton.png");
+}
+
+.pcard{
+    height: 150px;
+    width: 300px;
+    background-image: url("331075.png");
+    color: white;
+}
+
+.nameinput{}
+
+.namecard{
+    height: 150px;
+    background-image: url("331075.png");
+    color: white;
+}
+.row2card{
+    height: 300px; 
+    width: 400px; 
+    background-image: url("331075.png");
+    color: white; 
+
+    
+}
+.row2input{
+width: 370px; 
+height: 220px;  
+}
+.input{
+  width: 208px;  
+}
+.vyj{
+   margin-right: 10px; 
+}
+.logout{
+    margin-right: 10px;
+}
+.navigation{
+border-style: inset;
+border-color: grey;
+background-image: url("331075.png");
+color: white;
+}
+.logo{
+    background-image: url("Logo.png");
+    width: 40px;
+    height: 40px;
+}
+.navbutton{
+    /* background-color: grey; */
+    background-image: url("Glowingbluebutton.png");
+}
+#picbtn{
+    margin-left: 40px;
+}
+
+#namebtn{
+    margin-left: 15px;
+}
+
+#aboutbtn{
+    margin-left: 115px;
+}
+
+#langbtn{
+    margin-left: 115px;
+}
+
+#messagebtn{
+    margin-left: 65px;
+}
+
+.delete{}
+
+.signupcard{
+    background-image: url("331075.png");
+    color: white;
+    margin-top: 75px;
+}
+
+.jcard{
+    height: 500px;
+    width: 700px;
+    background-image: url("331075.png");
+    color: white;
+    justify-content: center;
+    margin-left: 520px;
+    margin-top: 200px;
+}

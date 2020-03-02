@@ -30,10 +30,12 @@ app.set("view engine", "handlebars");
 
 require("./routes/login-routes")(app);
 
-const memberRouter = require("./controllers/members-controller.js");
+const memberRouter2 = require("./routes/memberRoutes.js");
+const memberRouter = require("./controllers/api/members-controller.js");
 const languageRouter = require("./controllers/memberlanguages-controller");
 const messagesRouter = require("./controllers/messages-controller.js")
 const picturesRouter = require("./controllers/profilepics-controller.js");
+app.use(memberRouter2);
 app.use(memberRouter);
 app.use(languageRouter);
 app.use(messagesRouter);
